@@ -20,4 +20,6 @@ const siteContentSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+siteContentSchema.index({ key: 1 }, { unique: true });
+
 module.exports = mongoose.model('SiteContent', siteContentSchema);

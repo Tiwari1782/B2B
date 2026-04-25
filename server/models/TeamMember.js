@@ -47,5 +47,6 @@ const teamMemberSchema = new mongoose.Schema(
 
 // Index for efficient sorting by category and order
 teamMemberSchema.index({ category: 1, order: 1 });
+teamMemberSchema.index({ isActive: 1 });
 
 module.exports = mongoose.model('TeamMember', teamMemberSchema);
