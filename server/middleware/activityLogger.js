@@ -18,7 +18,7 @@ const activityLogger = async (req, res, next) => {
       ActivityLog.create({
         user: req.user._id || req.user.id,
         action: req.activityMessage,
-        ip: req.ip || req.headers['x-forwarded-for'] || req.socket?.remoteAddress || '',
+        ip: req.ip || req.socket?.remoteAddress || 'Unknown',
         timestamp: new Date(),
       }).catch((err) => console.error('Activity log error:', err.message));
     }
