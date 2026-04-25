@@ -1,13 +1,26 @@
+// Fixed: P1-9 (whitelist settings keys), P2-19 (filter listAdmins to admin role only)
 const { validationResult } = require('express-validator');
+const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const ActivityLog = require('../models/ActivityLog');
 const SiteContent = require('../models/SiteContent');
 
-// List all admins
+// Whitelist of allowed settings keys for updateSettings
+const ALLOWED_SETTINGS_KEYS = [
+  'seo_title', 'seo_description',
+  'hero_title', 'hero_subtitle', 'hero_cta',
+  'about_description',
+  'contact_email', 'contact_phone', 'contact_address', 'contact_map_lat', 'contact_map_lng',
+  'chatbot_system_context',
+  'social_github', 'social_linkedin', 'social_instagram', 'social_twitter', 'social_youtube',
+  'partner_stat_partners', 'partner_stat_industries', 'partner_stat_cities', 'partner_stat_years',
+];
+
+// List only admin users (not superadmins)
 const listAdmins = async (req, res, next) => {
   try {
-    const admins = await User.find().select('-password').sort({ createdAt: -1 });
+    const admins = await User.find({ role: 'admin' }).select('-password').sort({ createdAt: -1 });
     res.status(200).json({ success: true, data: admins });
   } catch (error) { next(error); }
 };
@@ -93,7 +106,10 @@ const getLogs = async (req, res, next) => {
     const limit = parseInt(req.query.limit) || 30;
     const skip = (page - 1) * limit;
     const filter = {};
-    if (req.query.userId) filter.user = req.query.userId;
+    // Validate userId is a valid ObjectId to prevent NoSQL injection
+    if (req.query.userId && mongoose.Types.ObjectId.isValid(req.query.userId)) {
+      filter.user = req.query.userId;
+    }
     const [logs, total] = await Promise.all([
       ActivityLog.find(filter).sort({ timestamp: -1 }).skip(skip).limit(limit).populate('user', 'name email'),
       ActivityLog.countDocuments(filter),
@@ -113,14 +129,20 @@ const getSettings = async (req, res, next) => {
   } catch (error) { next(error); }
 };
 
-// Update site settings
+// Update site settings — only whitelisted keys
 const updateSettings = async (req, res, next) => {
   try {
     const settings = req.body;
-    for (const [key, value] of Object.entries(settings)) {
+    const validEntries = Object.entries(settings).filter(([key]) => ALLOWED_SETTINGS_KEYS.includes(key));
+
+    if (validEntries.length === 0) {
+      return res.status(400).json({ success: false, message: 'No valid settings keys provided.' });
+    }
+
+    for (const [key, value] of validEntries) {
       await SiteContent.findOneAndUpdate({ key }, { value, updatedBy: req.user._id }, { upsert: true });
     }
-    req.activityMessage = `Updated site settings`;
+    req.activityMessage = `Updated site settings: ${validEntries.map(([k]) => k).join(', ')}`;
     res.status(200).json({ success: true, message: 'Settings updated successfully.' });
   } catch (error) { next(error); }
 };
