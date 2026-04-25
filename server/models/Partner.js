@@ -30,4 +30,6 @@ const partnerSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+partnerSchema.index({ isActive: 1 });
+
 module.exports = mongoose.model('Partner', partnerSchema);

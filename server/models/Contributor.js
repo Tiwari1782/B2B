@@ -35,4 +35,6 @@ const contributorSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+contributorSchema.index({ isActive: 1 });
+
 module.exports = mongoose.model('Contributor', contributorSchema);
