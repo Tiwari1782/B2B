@@ -1,9 +1,11 @@
+// Fixed: P0-5 (NODE_ENV), P1-2 (CORS), P1-5 (morgan), P2-7 (CSP), P3-22 (graceful shutdown), P3-25 (trust proxy)
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const compression = require('compression');
+const mongoose = require('mongoose');
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/errorHandler');
 
@@ -16,17 +18,45 @@ const chatRoutes = require('./routes/chatRoutes');
 
 const app = express();
 
+// Trust proxy (for rate limiting behind reverse proxy and correct IP logging)
+app.set('trust proxy', 1);
+
 // Connect to MongoDB
 connectDB();
 
-// Security & compression middleware
-app.use(helmet());
-app.use(compression());
-app.use(morgan('dev'));
+// Security middleware with configured CSP
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
+      imgSrc: ["'self'", 'data:', 'blob:', 'https://res.cloudinary.com'],
+      connectSrc: ["'self'", process.env.CLIENT_URL || 'http://localhost:5173'],
+      fontSrc: ["'self'", 'https://fonts.gstatic.com'],
+      objectSrc: ["'none'"],
+      frameSrc: ["'none'"],
+    },
+  },
+  hsts: { maxAge: 31536000, includeSubDomains: true },
+}));
 
-// CORS — restricted to CLIENT_URL
+app.use(compression());
+
+// Environment-aware logging
+app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
+
+// CORS — environment-aware origins
+const allowedOrigins = process.env.NODE_ENV === 'production'
+  ? [process.env.CLIENT_URL].filter(Boolean)
+  : [process.env.CLIENT_URL, 'http://localhost:5173', 'http://localhost:5174'].filter(Boolean);
+
 app.use(cors({
-  origin: [process.env.CLIENT_URL, 'http://localhost:5173', 'http://localhost:5174'],
+  origin: (origin, callback) => {
+    // Allow requests with no origin (mobile apps, curl, server-to-server)
+    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+    callback(new Error('Not allowed by CORS'));
+  },
   credentials: true,
 }));
 
@@ -54,7 +84,33 @@ app.use((req, res) => {
 // Centralized error handler
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Bug2Build server running on port ${PORT}`);
-});
+// Start server with graceful shutdown
+if (require.main === module) {
+  const PORT = process.env.PORT || 5000;
+  const server = app.listen(PORT, () => {
+    console.log(`Bug2Build server running on port ${PORT} [${process.env.NODE_ENV || 'development'}]`);
+  });
+
+  const shutdown = async (signal) => {
+    console.log(`\n${signal} received — shutting down gracefully...`);
+    server.close(async () => {
+      try {
+        await mongoose.connection.close();
+        console.log('MongoDB connection closed.');
+      } catch (err) {
+        console.error('Error closing MongoDB:', err.message);
+      }
+      process.exit(0);
+    });
+    // Force shutdown after 10s if graceful fails
+    setTimeout(() => {
+      console.error('Forced shutdown after timeout.');
+      process.exit(1);
+    }, 10000);
+  };
+
+  process.on('SIGTERM', () => shutdown('SIGTERM'));
+  process.on('SIGINT', () => shutdown('SIGINT'));
+}
+
+module.exports = app;
