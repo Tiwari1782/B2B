@@ -34,4 +34,7 @@ const contactSubmissionSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+contactSubmissionSchema.index({ createdAt: -1 });
+contactSubmissionSchema.index({ isRead: 1 });
+
 module.exports = mongoose.model('ContactSubmission', contactSubmissionSchema);
