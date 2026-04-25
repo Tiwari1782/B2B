@@ -533,7 +533,7 @@ const Home = () => {
     ]).then(([contentRes, eventsRes, teamRes, partnersRes, brandsRes]) => {
       if (contentRes.status === 'fulfilled') setContent(contentRes.value.data.data || {});
       if (eventsRes.status === 'fulfilled')  setEvents(eventsRes.value.data.data || []);
-      if (teamRes.status === 'fulfilled')    setTeam(teamRes.value.data.data?.slice(0, 8) || []);
+      if (teamRes.status === 'fulfilled')    setTeam(teamRes.value.data.data?.filter(m => m.category === 'executive').slice(0, 8) || []);
       if (partnersRes.status === 'fulfilled') setPartners(partnersRes.value.data.data || []);
       if (brandsRes.status === 'fulfilled')  setBrands(brandsRes.value.data.data || []);
     });
