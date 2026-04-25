@@ -31,7 +31,8 @@ About: ${aboutContent?.value || 'Bug2Build is a tech community.'}
 Contact Email: ${contactEmail?.value || 'contact@bug2build.in'}
 `;
 
-    const systemPrompt = `${systemContext?.value || 'You are Bug2Build Assistant.'}\n${dbContext}`;
+    const defaultSystemPrompt = 'You are the official Bug2Build AI Assistant. Your goal is to help visitors understand what our community does, inform them about new events, and guide them on how to join the community. Keep your answers helpful, friendly, and concise based on the live data provided. Never hallucinate events that are not in the live data.';
+    const systemPrompt = `${systemContext?.value || defaultSystemPrompt}\n${dbContext}`;
 
     // Load or create session
     let session = await ChatSession.findOne({ sessionId });
@@ -48,7 +49,7 @@ Contact Email: ${contactEmail?.value || 'contact@bug2build.in'}
 
     try {
       const completion = await groq.chat.completions.create({
-        model: 'llama3-70b-8192',
+        model: 'llama-3.3-70b-versatile',
         messages,
         temperature: 0.7,
         max_tokens: 1024,
@@ -56,13 +57,17 @@ Contact Email: ${contactEmail?.value || 'contact@bug2build.in'}
 
       const reply = completion.choices[0]?.message?.content || 'I could not generate a response.';
 
-      // Save to session
+      // Save to session (cap at 100 messages to prevent unbounded growth)
       session.messages.push({ role: 'user', content: message, timestamp: new Date() });
       session.messages.push({ role: 'assistant', content: reply, timestamp: new Date() });
+      if (session.messages.length > 100) {
+        session.messages = session.messages.slice(-100);
+      }
       await session.save();
 
       res.status(200).json({ success: true, data: { reply, sessionId: session.sessionId } });
     } catch (groqError) {
+      console.error('Groq AI Error:', groqError.error ? groqError.error : groqError);
       // Groq fallback
       const fallbackEmail = contactEmail?.value || 'contact@bug2build.in';
       const fallbackReply = `I'm currently unable to process your request. Our AI service is temporarily unavailable. Please reach out to us directly at **${fallbackEmail}** and we'll be happy to help!`;
