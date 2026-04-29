@@ -12,13 +12,6 @@
 
 > A fully dynamic, CMS-driven community website where **Admins and SuperAdmins manage 100% of site content from a browser dashboard — zero code changes needed after deployment.** Built on the MERN stack with an AI-powered chatbot (Groq/LLaMA 3), premium glassmorphic UI, 3D login effects, and a robust role-based access system.
 
-<p align="center">
-  <a href="https://bug2build.in">🌐 Live Site</a> •
-  <a href="https://api.bug2build.in/api/health">📡 API Health</a> •
-  <a href="#-quick-start">🚀 Quick Start</a> •
-  <a href="#-api-reference">🔌 API Docs</a>
-</p>
-
 ---
 
 ## ✨ Features
