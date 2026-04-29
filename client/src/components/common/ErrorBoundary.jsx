@@ -49,7 +49,7 @@ export class ErrorBoundary extends Component {
               window.location.reload();
             }}
             style={{
-              background: 'linear-gradient(135deg, #5B5FEF, #7C3AED)',
+              background: 'linear-gradient(135deg, #3B5FCC, #7C3AED)',
               color: 'white',
               border: 'none',
               padding: '12px 28px',
@@ -57,11 +57,11 @@ export class ErrorBoundary extends Component {
               fontSize: '0.875rem',
               fontWeight: 700,
               cursor: 'pointer',
-              boxShadow: '0 4px 24px rgba(91,95,239,0.3)',
+              boxShadow: '0 4px 24px rgba(59,95,204,0.3)',
               transition: 'transform 0.2s, box-shadow 0.2s',
             }}
-            onMouseOver={(e) => { e.target.style.transform = 'translateY(-2px)'; e.target.style.boxShadow = '0 8px 32px rgba(91,95,239,0.4)'; }}
-            onMouseOut={(e) => { e.target.style.transform = 'translateY(0)'; e.target.style.boxShadow = '0 4px 24px rgba(91,95,239,0.3)'; }}
+            onMouseOver={(e) => { e.target.style.transform = 'translateY(-2px)'; e.target.style.boxShadow = '0 8px 32px rgba(59,95,204,0.4)'; }}
+            onMouseOut={(e) => { e.target.style.transform = 'translateY(0)'; e.target.style.boxShadow = '0 4px 24px rgba(59,95,204,0.3)'; }}
           >
             Reload Page
           </button>

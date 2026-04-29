@@ -50,21 +50,25 @@ const Navbar = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          /* ── Glassmorphism ── */
+          /* ── Glassmorphism ─────────────────────────────────────────────────
+             Dark:  was rgba(8,11,20,...) — nearly black, ate the logo.
+                    Now rgba(18,28,46,...) — blue-slate base matches new
+                    bg-primary (#101828) so the navy logo piece has contrast.
+             ──────────────────────────────────────────────────────────────── */
           background: isDark
-            ? 'rgba(8, 11, 20, 0.55)'
+            ? 'rgba(18, 28, 46, 0.52)'   /* was rgba(8,11,20,0.55) */
             : 'rgba(255, 255, 255, 0.45)',
           backdropFilter: 'blur(28px) saturate(190%)',
           WebkitBackdropFilter: 'blur(28px) saturate(190%)',
           border: isDark
-            ? '1px solid rgba(255, 255, 255, 0.08)'
+            ? '1px solid rgba(255, 255, 255, 0.09)'   /* slightly more visible */
             : '1px solid rgba(0, 0, 0, 0.08)',
           boxShadow: scrolled
             ? isDark
-              ? '0 8px 48px rgba(0,0,0,0.6), inset 0 0.5px 0 rgba(255,255,255,0.06)'
+              ? '0 8px 48px rgba(0,0,0,0.45), inset 0 0.5px 0 rgba(255,255,255,0.07)'
               : '0 8px 48px rgba(0,0,0,0.08), inset 0 0.5px 0 rgba(255,255,255,0.7)'
             : isDark
-              ? '0 4px 24px rgba(0,0,0,0.35), inset 0 0.5px 0 rgba(255,255,255,0.04)'
+              ? '0 4px 24px rgba(0,0,0,0.28), inset 0 0.5px 0 rgba(255,255,255,0.05)'
               : '0 4px 24px rgba(0,0,0,0.04), inset 0 0.5px 0 rgba(255,255,255,0.6)',
           transition: 'all 0.5s cubic-bezier(0.22,1,0.36,1)',
         }}
@@ -138,8 +142,8 @@ const Navbar = () => {
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = 'var(--color-accent-primary)';
               e.currentTarget.style.background = isDark
-                ? 'rgba(91,95,239,0.12)' : 'rgba(79,70,229,0.08)';
-              e.currentTarget.style.boxShadow = '0 0 16px rgba(91,95,239,0.2)';
+                ? 'rgba(59,95,204,0.12)' : 'rgba(79,70,229,0.08)';
+              e.currentTarget.style.boxShadow = '0 0 16px rgba(59,95,204,0.2)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.borderColor = isDark
@@ -171,10 +175,10 @@ const Navbar = () => {
                   : 'rgba(0,0,0,0.03)',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#8B5CF6';
+                e.currentTarget.style.borderColor = '#5B7FE6';
                 e.currentTarget.style.background = isDark
-                  ? 'rgba(139,92,246,0.12)' : 'rgba(139,92,246,0.08)';
-                e.currentTarget.style.boxShadow = '0 0 16px rgba(139,92,246,0.25)';
+                  ? 'rgba(91,127,230,0.12)' : 'rgba(91,127,230,0.08)';
+                e.currentTarget.style.boxShadow = '0 0 16px rgba(91,127,230,0.25)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = isDark
@@ -217,7 +221,7 @@ const Navbar = () => {
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = 'var(--color-accent-primary)';
               e.currentTarget.style.background = isDark
-                ? 'rgba(91,95,239,0.1)' : 'rgba(79,70,229,0.06)';
+                ? 'rgba(59,95,204,0.1)' : 'rgba(79,70,229,0.06)';
               e.currentTarget.style.color = 'var(--color-accent-primary)';
             }}
             onMouseLeave={(e) => {
@@ -237,15 +241,15 @@ const Navbar = () => {
               to={user.role === 'superadmin' ? '/superadmin' : '/admin'}
               className="hidden md:inline-flex items-center justify-center text-[13.5px] font-bold text-white rounded-full px-6 py-2 transition-all duration-300 hover:scale-[1.03]"
               style={{
-                background: 'linear-gradient(135deg, #FF6B8A, #8B5CF6)',
-                boxShadow: '0 4px 18px rgba(139,92,246,0.35)',
+                background: 'linear-gradient(135deg, #4E8AE6, #5B7FE6)',
+                boxShadow: '0 4px 18px rgba(91,127,230,0.35)',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = '0 6px 28px rgba(139,92,246,0.5)';
+                e.currentTarget.style.boxShadow = '0 6px 28px rgba(91,127,230,0.5)';
                 e.currentTarget.style.transform = 'translateY(-1px) scale(1.03)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = '0 4px 18px rgba(139,92,246,0.35)';
+                e.currentTarget.style.boxShadow = '0 4px 18px rgba(91,127,230,0.35)';
                 e.currentTarget.style.transform = 'translateY(0) scale(1)';
               }}
             >
@@ -258,15 +262,15 @@ const Navbar = () => {
               rel="noopener noreferrer"
               className="hidden md:inline-flex items-center justify-center text-[13.5px] font-bold text-white rounded-full px-6 py-2 transition-all duration-300 hover:scale-[1.03]"
               style={{
-                background: 'linear-gradient(135deg, #FF6B8A, #8B5CF6)',
-                boxShadow: '0 4px 18px rgba(139,92,246,0.35)',
+                background: 'linear-gradient(135deg, #4E8AE6, #5B7FE6)',
+                boxShadow: '0 4px 18px rgba(91,127,230,0.35)',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = '0 6px 28px rgba(139,92,246,0.5)';
+                e.currentTarget.style.boxShadow = '0 6px 28px rgba(91,127,230,0.5)';
                 e.currentTarget.style.transform = 'translateY(-1px) scale(1.03)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = '0 4px 18px rgba(139,92,246,0.35)';
+                e.currentTarget.style.boxShadow = '0 4px 18px rgba(91,127,230,0.35)';
                 e.currentTarget.style.transform = 'translateY(0) scale(1)';
               }}
             >
@@ -311,16 +315,17 @@ const Navbar = () => {
               margin: '10px auto 0',
               borderRadius: '28px',
               overflow: 'hidden',
+              /* Mobile drawer — same base shift as navbar pill */
               background: isDark
-                ? 'rgba(8, 11, 20, 0.92)'
+                ? 'rgba(18, 28, 46, 0.92)'   /* was rgba(8,11,20,0.92) */
                 : 'rgba(255, 255, 255, 0.92)',
               backdropFilter: 'blur(28px) saturate(190%)',
               WebkitBackdropFilter: 'blur(28px) saturate(190%)',
               border: isDark
-                ? '1px solid rgba(255,255,255,0.06)'
+                ? '1px solid rgba(255,255,255,0.08)'
                 : '1px solid rgba(0,0,0,0.06)',
               boxShadow: isDark
-                ? '0 16px 48px rgba(0,0,0,0.6)'
+                ? '0 16px 48px rgba(0,0,0,0.45)'
                 : '0 16px 48px rgba(0,0,0,0.1)',
             }}
           >
@@ -340,7 +345,7 @@ const Navbar = () => {
                   }
                   style={({ isActive }) => isActive ? {
                     background: isDark
-                      ? 'rgba(91,95,239,0.1)'
+                      ? 'rgba(59,95,204,0.1)'
                       : 'rgba(79,70,229,0.06)',
                   } : {}}
                 >
@@ -375,8 +380,8 @@ const Navbar = () => {
                       to={user.role === 'superadmin' ? '/superadmin' : '/admin'}
                       className="flex-1 text-center text-sm font-bold text-white rounded-2xl py-3.5"
                       style={{
-                        background: 'linear-gradient(135deg, #FF6B8A, #8B5CF6)',
-                        boxShadow: '0 4px 16px rgba(139,92,246,0.3)',
+                        background: 'linear-gradient(135deg, #4E8AE6, #5B7FE6)',
+                        boxShadow: '0 4px 16px rgba(91,127,230,0.3)',
                       }}
                     >
                       Dashboard
@@ -388,8 +393,8 @@ const Navbar = () => {
                       rel="noopener noreferrer"
                       className="flex-1 text-center text-sm font-bold text-white rounded-2xl py-3.5"
                       style={{
-                        background: 'linear-gradient(135deg, #FF6B8A, #8B5CF6)',
-                        boxShadow: '0 4px 16px rgba(139,92,246,0.3)',
+                        background: 'linear-gradient(135deg, #4E8AE6, #5B7FE6)',
+                        boxShadow: '0 4px 16px rgba(91,127,230,0.3)',
                       }}
                     >
                       Join Now
@@ -402,12 +407,12 @@ const Navbar = () => {
                     className="flex items-center justify-center gap-2.5 text-sm font-semibold rounded-2xl py-3.5 transition-all duration-200"
                     style={{
                       border: isDark
-                        ? '1px solid rgba(139,92,246,0.25)'
-                        : '1px solid rgba(139,92,246,0.2)',
-                      color: '#8B5CF6',
+                        ? '1px solid rgba(91,127,230,0.25)'
+                        : '1px solid rgba(91,127,230,0.2)',
+                      color: '#5B7FE6',
                       background: isDark
-                        ? 'rgba(139,92,246,0.08)'
-                        : 'rgba(139,92,246,0.05)',
+                        ? 'rgba(91,127,230,0.08)'
+                        : 'rgba(91,127,230,0.05)',
                     }}
                   >
                     <HiOutlineShieldCheck className="w-4 h-4" />

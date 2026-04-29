@@ -41,7 +41,7 @@ const GlitchText = ({ text }) => {
               {text}
             </motion.h1>
             <motion.h1
-              className="absolute inset-0 text-[clamp(7rem,22vw,14rem)] font-black leading-none tracking-tighter text-accent-blue pointer-events-none"
+              className="absolute inset-0 text-[clamp(7rem,22vw,14rem)] font-black leading-none tracking-tighter text-accent-cyan pointer-events-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 0.5, 0, 0.4, 0], x: [4, -4, 2, -3, 0], skewX: [0, 2, 0] }}
               exit={{ opacity: 0 }}
@@ -87,7 +87,7 @@ const Terminal = () => {
     >
       {/* Window chrome */}
       <div className="flex items-center gap-2 px-4 py-3 bg-[#1a1a2e] border-b border-border/40">
-        <div className="w-3 h-3 rounded-full bg-[#FF6B8A]" />
+        <div className="w-3 h-3 rounded-full bg-[#4E8AE6]" />
         <div className="w-3 h-3 rounded-full bg-[#F59E0B]" />
         <div className="w-3 h-3 rounded-full bg-[#10B981]" />
         <span className="ml-auto text-[11px] font-mono text-text-muted tracking-widest">bug2build ~ terminal</span>
@@ -107,7 +107,7 @@ const Terminal = () => {
               line.prefix === '$' ? 'text-accent-primary' : 'text-text-muted'
             }`}>{line.prefix}</span>
             <span className={
-              line.error ? 'text-[#FF6B8A]' :
+              line.error ? 'text-[#4E8AE6]' :
               line.warn ? 'text-[#F59E0B]' :
               line.success ? 'text-[#10B981]' :
               'text-text-secondary'
@@ -191,13 +191,13 @@ const NotFound = () => {
     <div className="min-h-screen flex flex-col items-center justify-center px-4 relative overflow-hidden">
 
       {/* ── Background layers ── */}
-      <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/6 via-transparent to-accent-purple/6" />
+      <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/6 via-transparent to-accent-secondary/6" />
 
       {/* Mouse-tracking spotlight */}
       <div
         className="absolute w-[600px] h-[600px] rounded-full pointer-events-none transition-all duration-1000 ease-out"
         style={{
-          background: 'radial-gradient(circle, rgba(91,95,239,0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(59,95,204,0.08) 0%, transparent 70%)',
           left: mousePos.x,
           top: mousePos.y,
           transform: 'translate(-50%, -50%)',
@@ -206,16 +206,16 @@ const NotFound = () => {
 
       {/* Ambient orbs */}
       <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-accent-primary/6 rounded-full blur-[120px] animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent-purple/6 rounded-full blur-[100px]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent-blue/4 rounded-full blur-[160px]" />
+      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent-secondary/6 rounded-full blur-[100px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent-cyan/4 rounded-full blur-[160px]" />
 
       {/* Grid */}
       <div
         className="absolute inset-0 opacity-[0.025]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(91,95,239,0.8) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(91,95,239,0.8) 1px, transparent 1px)
+            linear-gradient(rgba(59,95,204,0.8) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59,95,204,0.8) 1px, transparent 1px)
           `,
           backgroundSize: '60px 60px',
         }}
@@ -238,9 +238,9 @@ const NotFound = () => {
       {/* ── Orbit rings around "404" ── */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none hidden md:block">
         <div className="relative w-0 h-0">
-          <OrbitRing radius={220} count={6} color="rgba(91,95,239,0.35)" duration={18} />
-          <OrbitRing radius={300} count={8} color="rgba(139,92,246,0.22)" duration={26} offset={30} />
-          <OrbitRing radius={370} count={5} color="rgba(0,194,255,0.18)" duration={34} offset={15} />
+          <OrbitRing radius={220} count={6} color="rgba(59,95,204,0.35)" duration={18} />
+          <OrbitRing radius={300} count={8} color="rgba(91,127,230,0.22)" duration={26} offset={30} />
+          <OrbitRing radius={370} count={5} color="rgba(26,143,188,0.18)" duration={34} offset={15} />
         </div>
       </div>
 
@@ -261,7 +261,7 @@ const NotFound = () => {
             src="/logo.png"
             alt="Bug2Build"
             className="h-12 mx-auto opacity-80"
-            style={{ filter: 'drop-shadow(0 0 16px rgba(91,95,239,0.4))' }}
+            style={{ filter: 'drop-shadow(0 0 16px rgba(59,95,204,0.4))' }}
           />
         </motion.div>
 
@@ -320,7 +320,7 @@ const NotFound = () => {
         >
           <Link
             to="/"
-            className="gradient-btn text-white font-bold px-8 py-3.5 rounded-2xl text-sm inline-flex items-center justify-center gap-2.5 shadow-[0_8px_24px_rgba(91,95,239,0.35)] hover:shadow-[0_12px_32px_rgba(91,95,239,0.5)] hover:-translate-y-0.5 transition-all duration-200"
+            className="gradient-btn text-white font-bold px-8 py-3.5 rounded-2xl text-sm inline-flex items-center justify-center gap-2.5 shadow-[0_8px_24px_rgba(59,95,204,0.35)] hover:shadow-[0_12px_32px_rgba(59,95,204,0.5)] hover:-translate-y-0.5 transition-all duration-200"
           >
             <HiOutlineHome className="w-4.5 h-4.5" />
             Back to Home

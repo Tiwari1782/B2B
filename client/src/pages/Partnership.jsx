@@ -28,10 +28,10 @@ const Partnership = () => {
   };
 
   const benefits = [
-    { icon: HiOutlineGlobe, title: 'Brand Visibility', desc: 'Reach 500+ active developers across our platforms.', color: '#5B5FEF' },
-    { icon: HiOutlineUsers, title: 'Talent Access', desc: 'Connect directly with top student developers.', color: '#00C2FF' },
-    { icon: HiOutlineLightningBolt, title: 'Event Co-hosting', desc: 'Sponsor and co-organize hackathons and workshops.', color: '#8B5CF6' },
-    { icon: HiOutlineAcademicCap, title: 'Community Impact', desc: 'Support open-source and education initiatives.', color: '#FF6B8A' },
+    { icon: HiOutlineGlobe, title: 'Brand Visibility', desc: 'Reach 500+ active developers across our platforms.', color: '#3B5FCC' },
+    { icon: HiOutlineUsers, title: 'Talent Access', desc: 'Connect directly with top student developers.', color: '#1A8FBC' },
+    { icon: HiOutlineLightningBolt, title: 'Event Co-hosting', desc: 'Sponsor and co-organize hackathons and workshops.', color: '#5B7FE6' },
+    { icon: HiOutlineAcademicCap, title: 'Community Impact', desc: 'Support open-source and education initiatives.', color: '#4E8AE6' },
   ];
 
   return (

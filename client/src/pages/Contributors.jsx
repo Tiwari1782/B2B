@@ -50,7 +50,7 @@ const Contributors = () => {
                     {c.avatar ? (
                       <img src={c.avatar} alt={c.name} className="w-full h-full object-cover" loading="lazy" />
                     ) : (
-                      <div className="w-full h-full bg-accent-purple/10 flex items-center justify-center text-lg font-bold text-accent-purple">{c.name[0]}</div>
+                      <div className="w-full h-full bg-accent-secondary/10 flex items-center justify-center text-lg font-bold text-accent-secondary">{c.name[0]}</div>
                     )}
                   </div>
                   <div className="flex-1 min-w-0">

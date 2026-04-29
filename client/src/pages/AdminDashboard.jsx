@@ -29,8 +29,8 @@ const scaleIn = {
 
 /* ─── Module config ─── */
 const modules = [
-  { key: 'events',       label: 'Events',       icon: HiOutlineCalendar,    color: '#6366f1', gradient: 'from-indigo-500 to-violet-600',  bg: 'rgba(99,102,241,0.12)',  desc: 'Manage all events',           badge: null },
-  { key: 'team',         label: 'Team',          icon: HiOutlineUsers,       color: '#8b5cf6', gradient: 'from-violet-500 to-purple-600',  bg: 'rgba(139,92,246,0.12)',  desc: 'Team members',                badge: null },
+  { key: 'events',       label: 'Events',       icon: HiOutlineCalendar,    color: '#6366f1', gradient: 'from-blue-600 to-blue-800',  bg: 'rgba(99,102,241,0.12)',  desc: 'Manage all events',           badge: null },
+  { key: 'team',         label: 'Team',          icon: HiOutlineUsers,       color: '#5B7FE6', gradient: 'from-violet-500 to-purple-600',  bg: 'rgba(91,127,230,0.12)',  desc: 'Team members',                badge: null },
   { key: 'partners',     label: 'Partners',      icon: HiOutlineGlobe,       color: '#06b6d4', gradient: 'from-cyan-500 to-sky-600',       bg: 'rgba(6,182,212,0.12)',   desc: 'Community partners',          badge: null },
   { key: 'brands',       label: 'Brands',        icon: HiOutlineBriefcase,   color: '#f59e0b', gradient: 'from-amber-500 to-orange-500',   bg: 'rgba(245,158,11,0.12)',  desc: 'Trusted brands',              badge: null },
   { key: 'contributors', label: 'Contributors',  icon: HiOutlineCode,        color: '#10b981', gradient: 'from-emerald-500 to-teal-500',   bg: 'rgba(16,185,129,0.12)',  desc: 'Open source contributors',    badge: null },
@@ -41,7 +41,7 @@ const modules = [
 /* ─── Stat cards shown in hero ─── */
 const quickStats = [
   { label: 'Total Events', value: '24', change: '+3', icon: HiOutlineCalendar, color: '#6366f1', bg: 'rgba(99,102,241,0.1)' },
-  { label: 'Team Members', value: '18', change: '+2', icon: HiOutlineUsers,    color: '#8b5cf6', bg: 'rgba(139,92,246,0.1)' },
+  { label: 'Team Members', value: '18', change: '+2', icon: HiOutlineUsers,    color: '#5B7FE6', bg: 'rgba(91,127,230,0.1)' },
   { label: 'New Messages', value: '7',  change: 'new', icon: HiOutlineMail,    color: '#f43f5e', bg: 'rgba(244,63,94,0.1)' },
   { label: 'Contributors', value: '42', change: '+5', icon: HiOutlineCode,     color: '#10b981', bg: 'rgba(16,185,129,0.1)' },
 ];
@@ -159,7 +159,7 @@ const AdminDashboard = () => {
             <div className="hidden md:flex items-center gap-2 pl-2 pr-1 py-1 rounded-full ml-1"
               style={{ border: tc('1px solid rgba(255,255,255,0.08)','1px solid rgba(0,0,0,0.08)'), background: tc('rgba(255,255,255,0.04)','rgba(0,0,0,0.03)') }}>
               <div className="w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-black"
-                style={{ background: `linear-gradient(135deg, #6366f1, #8b5cf6)`, color: '#fff' }}>
+                style={{ background: `linear-gradient(135deg, #6366f1, #5B7FE6)`, color: '#fff' }}>
                 {user?.name?.[0]}
               </div>
               <div className="text-right pr-1.5">
@@ -447,7 +447,7 @@ const EventsManager = ({ showConfirm, toast }) => {
           whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.97 }}
           onClick={() => setModal({})}
           className="flex items-center gap-2 text-sm font-bold px-4 py-2.5 rounded-xl text-white"
-          style={{ background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', boxShadow: '0 4px 16px rgba(99,102,241,0.4)' }}>
+          style={{ background: 'linear-gradient(135deg, #6366f1, #5B7FE6)', boxShadow: '0 4px 16px rgba(99,102,241,0.4)' }}>
           <HiOutlinePlus className="w-4 h-4" />Add Event
         </motion.button>
       </div>
@@ -620,7 +620,7 @@ const EventModal = ({ item, onSave, onClose, onReload }) => {
       >
         {/* Modal header */}
         <div className="flex items-center justify-between px-6 py-5 flex-shrink-0"
-          style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', background: 'linear-gradient(135deg, rgba(99,102,241,0.06), rgba(139,92,246,0.04))' }}>
+          style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', background: 'linear-gradient(135deg, rgba(99,102,241,0.06), rgba(91,127,230,0.04))' }}>
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-xl flex items-center justify-center"
               style={{ background: 'rgba(99,102,241,0.15)', border: '1px solid rgba(99,102,241,0.25)' }}>
@@ -769,7 +769,7 @@ const EventModal = ({ item, onSave, onClose, onReload }) => {
             <div className="px-6 pb-6 pt-2">
               <button type="submit" disabled={saving}
                 className="w-full font-black py-3.5 rounded-2xl text-white flex items-center justify-center gap-2 transition-all duration-200 disabled:opacity-50"
-                style={{ background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', boxShadow: '0 6px 24px rgba(99,102,241,0.4)' }}>
+                style={{ background: 'linear-gradient(135deg, #6366f1, #5B7FE6)', boxShadow: '0 6px 24px rgba(99,102,241,0.4)' }}>
                 {saving
                   ? <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Saving…</>
                   : <><HiOutlineCheck className="w-4.5 h-4.5" />{item._id ? 'Update Event' : 'Create Event'}</>
@@ -819,7 +819,7 @@ const CrudManager = ({ endpoint, fields, imageField, categoryOptions, showConfir
     : items;
 
   /* Resolve accent from endpoint */
-  const accent = { team: '#8b5cf6', partners: '#06b6d4', brands: '#f59e0b', contributors: '#10b981' }[endpoint] || '#6366f1';
+  const accent = { team: '#5B7FE6', partners: '#06b6d4', brands: '#f59e0b', contributors: '#10b981' }[endpoint] || '#6366f1';
 
   return (
     <div>
@@ -1139,7 +1139,7 @@ const ProfileManager = ({ user, updateUser, toast }) => {
     <div className="max-w-lg">
       <motion.div variants={fadeUp} initial="hidden" animate="visible" className="card-base overflow-hidden">
         {/* Banner */}
-        <div className="h-28 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #6366f140 0%, #8b5cf630 50%, #06b6d420 100%)' }}>
+        <div className="h-28 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #6366f140 0%, #5B7FE630 50%, #06b6d420 100%)' }}>
           {/* Decorative grid */}
           <svg className="absolute inset-0 w-full h-full opacity-[0.12]" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -1150,7 +1150,7 @@ const ProfileManager = ({ user, updateUser, toast }) => {
             <rect width="100%" height="100%" fill="url(#grid)" />
           </svg>
           {/* Accent orbs */}
-          <div className="absolute -top-6 -right-6 w-28 h-28 rounded-full opacity-20" style={{ background: 'radial-gradient(circle, #8b5cf6, transparent)' }} />
+          <div className="absolute -top-6 -right-6 w-28 h-28 rounded-full opacity-20" style={{ background: 'radial-gradient(circle, #5B7FE6, transparent)' }} />
           <div className="absolute -bottom-4 left-10 w-20 h-20 rounded-full opacity-15" style={{ background: 'radial-gradient(circle, #06b6d4, transparent)' }} />
         </div>
 
@@ -1163,7 +1163,7 @@ const ProfileManager = ({ user, updateUser, toast }) => {
                 {avatar
                   ? <img src={avatar} alt="" className="w-full h-full object-cover" />
                   : <div className="w-full h-full flex items-center justify-center text-3xl font-black text-white"
-                      style={{ background: 'linear-gradient(135deg, #6366f1, #8b5cf6)' }}>
+                      style={{ background: 'linear-gradient(135deg, #6366f1, #5B7FE6)' }}>
                       {user?.name?.[0]}
                     </div>
                 }
@@ -1180,7 +1180,7 @@ const ProfileManager = ({ user, updateUser, toast }) => {
               <p className="text-text-muted text-sm mt-0.5 truncate">{user?.email}</p>
               <div className="flex items-center gap-1.5 mt-1.5">
                 <span className="inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full text-white"
-                  style={{ background: 'linear-gradient(135deg, #6366f1, #8b5cf6)' }}>
+                  style={{ background: 'linear-gradient(135deg, #6366f1, #5B7FE6)' }}>
                   <HiOutlineSparkles className="w-3 h-3" />{user?.role}
                 </span>
               </div>
@@ -1207,7 +1207,7 @@ const ProfileManager = ({ user, updateUser, toast }) => {
             </div>
             <button type="submit" disabled={saving}
               className="flex items-center gap-2 font-black px-6 py-2.5 rounded-xl text-white transition-all duration-200 disabled:opacity-50"
-              style={{ background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', boxShadow: '0 4px 16px rgba(99,102,241,0.4)' }}>
+              style={{ background: 'linear-gradient(135deg, #6366f1, #5B7FE6)', boxShadow: '0 4px 16px rgba(99,102,241,0.4)' }}>
               {saving
                 ? <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Saving…</>
                 : <><HiOutlineCheck className="w-4 h-4" />Save Profile</>
@@ -1264,7 +1264,7 @@ const Spinner = () => (
     <div className="relative w-12 h-12">
       <div className="absolute inset-0 rounded-full border-2 opacity-10" style={{ borderColor: '#6366f1' }} />
       <div className="absolute inset-0 rounded-full border-2 border-transparent animate-spin" style={{ borderTopColor: '#6366f1' }} />
-      <div className="absolute inset-2 rounded-full border border-transparent animate-spin" style={{ borderTopColor: '#8b5cf6', animationDirection: 'reverse', animationDuration: '0.6s' }} />
+      <div className="absolute inset-2 rounded-full border border-transparent animate-spin" style={{ borderTopColor: '#5B7FE6', animationDirection: 'reverse', animationDuration: '0.6s' }} />
     </div>
     <p className="text-text-muted text-sm font-medium">Loading…</p>
   </div>

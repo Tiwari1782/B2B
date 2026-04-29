@@ -30,7 +30,7 @@ const LoginBackground = () => {
       <div
         className="absolute w-[600px] h-[600px] rounded-full transition-all duration-700 ease-out"
         style={{
-          background: 'radial-gradient(circle, rgba(91,95,239,0.15) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(59,95,204,0.15) 0%, transparent 70%)',
           left: `${mouse.x}%`,
           top: `${mouse.y}%`,
           transform: 'translate(-50%, -50%)',
@@ -39,8 +39,8 @@ const LoginBackground = () => {
 
       {/* Static ambient orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-accent-primary/8 blur-[120px]" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent-purple/6 blur-[100px]" />
-      <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] rounded-full bg-accent-blue/5 blur-[80px]" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent-secondary/6 blur-[100px]" />
+      <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] rounded-full bg-accent-cyan/5 blur-[80px]" />
 
       {/* Animated particles */}
       {Array.from({ length: 24 }).map((_, i) => (
@@ -53,10 +53,10 @@ const LoginBackground = () => {
             left: `${5 + (i * 4.1) % 90}%`,
             top: `${3 + (i * 5.7) % 94}%`,
             background: i % 3 === 0
-              ? 'rgba(91,95,239,0.5)'
+              ? 'rgba(59,95,204,0.5)'
               : i % 3 === 1
-                ? 'rgba(139,92,246,0.4)'
-                : 'rgba(0,194,255,0.4)',
+                ? 'rgba(91,127,230,0.4)'
+                : 'rgba(26,143,188,0.4)',
           }}
           animate={{
             y: [0, -30 - (i % 20), 0],
@@ -75,12 +75,12 @@ const LoginBackground = () => {
 
       {/* Floating geometric shapes */}
       {[
-        { size: 48, x: '10%', y: '20%', d: 7, color: 'rgba(91,95,239,0.08)', rotate: 45 },
-        { size: 32, x: '82%', y: '15%', d: 9, color: 'rgba(0,194,255,0.07)', rotate: 15 },
-        { size: 60, x: '75%', y: '65%', d: 11, color: 'rgba(139,92,246,0.06)', rotate: 30 },
-        { size: 24, x: '20%', y: '75%', d: 6, color: 'rgba(255,107,138,0.06)', rotate: 60 },
-        { size: 40, x: '90%', y: '40%', d: 8, color: 'rgba(91,95,239,0.06)', rotate: 20 },
-        { size: 36, x: '5%', y: '50%', d: 10, color: 'rgba(0,194,255,0.08)', rotate: 75 },
+        { size: 48, x: '10%', y: '20%', d: 7, color: 'rgba(59,95,204,0.08)', rotate: 45 },
+        { size: 32, x: '82%', y: '15%', d: 9, color: 'rgba(26,143,188,0.07)', rotate: 15 },
+        { size: 60, x: '75%', y: '65%', d: 11, color: 'rgba(91,127,230,0.06)', rotate: 30 },
+        { size: 24, x: '20%', y: '75%', d: 6, color: 'rgba(78,138,230,0.06)', rotate: 60 },
+        { size: 40, x: '90%', y: '40%', d: 8, color: 'rgba(59,95,204,0.06)', rotate: 20 },
+        { size: 36, x: '5%', y: '50%', d: 10, color: 'rgba(26,143,188,0.08)', rotate: 75 },
       ].map((s, i) => (
         <motion.div
           key={`shape-${i}`}
@@ -108,8 +108,8 @@ const LoginBackground = () => {
         className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(91,95,239,0.6) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(91,95,239,0.6) 1px, transparent 1px)
+            linear-gradient(rgba(59,95,204,0.6) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59,95,204,0.6) 1px, transparent 1px)
           `,
           backgroundSize: '60px 60px',
         }}
@@ -206,8 +206,8 @@ const FloatingSnippets = () => {
             style={{
               background: isDark ? 'rgba(13,17,32,0.8)' : 'rgba(255,255,255,0.8)',
               backdropFilter: 'blur(12px)',
-              border: isDark ? '1px solid rgba(91,95,239,0.15)' : '1px solid rgba(91,95,239,0.12)',
-              color: isDark ? '#8B5CF6' : '#6D28D9',
+              border: isDark ? '1px solid rgba(59,95,204,0.15)' : '1px solid rgba(59,95,204,0.12)',
+              color: isDark ? '#5B7FE6' : '#1B2A5B',
               boxShadow: isDark
                 ? '0 4px 24px rgba(0,0,0,0.3)'
                 : '0 4px 24px rgba(0,0,0,0.06)',
@@ -305,17 +305,17 @@ const Login = () => {
             }}
           >
             {/* Top gradient accent line */}
-            <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #FF6B8A, #8B5CF6, #5B5FEF, #00C2FF)' }} />
+            <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #4E8AE6, #5B7FE6, #3B5FCC, #1A8FBC)' }} />
 
             {/* Animated border glow */}
             <motion.div
               className="absolute -inset-[1px] rounded-3xl pointer-events-none z-0"
               animate={{
                 background: [
-                  'conic-gradient(from 0deg, rgba(91,95,239,0.15), rgba(139,92,246,0.15), rgba(0,194,255,0.15), rgba(255,107,138,0.15), rgba(91,95,239,0.15))',
-                  'conic-gradient(from 120deg, rgba(91,95,239,0.15), rgba(139,92,246,0.15), rgba(0,194,255,0.15), rgba(255,107,138,0.15), rgba(91,95,239,0.15))',
-                  'conic-gradient(from 240deg, rgba(91,95,239,0.15), rgba(139,92,246,0.15), rgba(0,194,255,0.15), rgba(255,107,138,0.15), rgba(91,95,239,0.15))',
-                  'conic-gradient(from 360deg, rgba(91,95,239,0.15), rgba(139,92,246,0.15), rgba(0,194,255,0.15), rgba(255,107,138,0.15), rgba(91,95,239,0.15))',
+                  'conic-gradient(from 0deg, rgba(59,95,204,0.15), rgba(91,127,230,0.15), rgba(26,143,188,0.15), rgba(78,138,230,0.15), rgba(59,95,204,0.15))',
+                  'conic-gradient(from 120deg, rgba(59,95,204,0.15), rgba(91,127,230,0.15), rgba(26,143,188,0.15), rgba(78,138,230,0.15), rgba(59,95,204,0.15))',
+                  'conic-gradient(from 240deg, rgba(59,95,204,0.15), rgba(91,127,230,0.15), rgba(26,143,188,0.15), rgba(78,138,230,0.15), rgba(59,95,204,0.15))',
+                  'conic-gradient(from 360deg, rgba(59,95,204,0.15), rgba(91,127,230,0.15), rgba(26,143,188,0.15), rgba(78,138,230,0.15), rgba(59,95,204,0.15))',
                 ],
               }}
               transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
@@ -336,8 +336,8 @@ const Login = () => {
                     className="absolute -inset-3 rounded-full"
                     animate={{
                       boxShadow: [
-                        '0 0 0 0px rgba(91,95,239,0.3)',
-                        '0 0 0 12px rgba(91,95,239,0)',
+                        '0 0 0 0px rgba(59,95,204,0.3)',
+                        '0 0 0 12px rgba(59,95,204,0)',
                       ],
                     }}
                     transition={{ duration: 2, repeat: Infinity }}
@@ -346,10 +346,10 @@ const Login = () => {
                     className="w-20 h-20 rounded-2xl flex items-center justify-center relative overflow-hidden"
                     style={{
                       background: isDark
-                        ? 'rgba(91,95,239,0.12)'
+                        ? 'rgba(59,95,204,0.12)'
                         : 'rgba(79,70,229,0.08)',
                       border: isDark
-                        ? '1px solid rgba(91,95,239,0.25)'
+                        ? '1px solid rgba(59,95,204,0.25)'
                         : '1px solid rgba(79,70,229,0.15)',
                     }}
                   >
@@ -394,13 +394,13 @@ const Login = () => {
                       className="absolute left-0 top-0 bottom-0 w-12 rounded-l-xl flex items-center justify-center transition-colors duration-300"
                       style={{
                         background: focusedField === 'email'
-                          ? isDark ? 'rgba(91,95,239,0.15)' : 'rgba(79,70,229,0.08)'
+                          ? isDark ? 'rgba(59,95,204,0.15)' : 'rgba(79,70,229,0.08)'
                           : 'transparent',
                       }}
                     >
                       <HiOutlineMail
                         className="w-4 h-4 transition-colors duration-300"
-                        style={{ color: focusedField === 'email' ? '#5B5FEF' : 'var(--color-text-muted)' }}
+                        style={{ color: focusedField === 'email' ? '#3B5FCC' : 'var(--color-text-muted)' }}
                       />
                     </div>
                     <input
@@ -418,7 +418,7 @@ const Login = () => {
                           : 'var(--color-border)',
                         color: 'var(--color-text-primary)',
                         boxShadow: focusedField === 'email'
-                          ? '0 0 0 3px rgba(91,95,239,0.12), 0 4px 12px rgba(91,95,239,0.08)'
+                          ? '0 0 0 3px rgba(59,95,204,0.12), 0 4px 12px rgba(59,95,204,0.08)'
                           : 'none',
                       }}
                       id="login-email"
@@ -441,13 +441,13 @@ const Login = () => {
                       className="absolute left-0 top-0 bottom-0 w-12 rounded-l-xl flex items-center justify-center transition-colors duration-300"
                       style={{
                         background: focusedField === 'password'
-                          ? isDark ? 'rgba(91,95,239,0.15)' : 'rgba(79,70,229,0.08)'
+                          ? isDark ? 'rgba(59,95,204,0.15)' : 'rgba(79,70,229,0.08)'
                           : 'transparent',
                       }}
                     >
                       <HiOutlineLockClosed
                         className="w-4 h-4 transition-colors duration-300"
-                        style={{ color: focusedField === 'password' ? '#5B5FEF' : 'var(--color-text-muted)' }}
+                        style={{ color: focusedField === 'password' ? '#3B5FCC' : 'var(--color-text-muted)' }}
                       />
                     </div>
                     <input
@@ -465,7 +465,7 @@ const Login = () => {
                           : 'var(--color-border)',
                         color: 'var(--color-text-primary)',
                         boxShadow: focusedField === 'password'
-                          ? '0 0 0 3px rgba(91,95,239,0.12), 0 4px 12px rgba(91,95,239,0.08)'
+                          ? '0 0 0 3px rgba(59,95,204,0.12), 0 4px 12px rgba(59,95,204,0.08)'
                           : 'none',
                       }}
                       id="login-password"
@@ -497,9 +497,9 @@ const Login = () => {
                     whileTap={{ scale: 0.98 }}
                     className="w-full relative overflow-hidden font-bold py-4 rounded-xl disabled:opacity-50 text-white text-base mt-2 transition-all duration-300"
                     style={{
-                      background: 'linear-gradient(135deg, #FF6B8A, #8B5CF6, #5B5FEF)',
+                      background: 'linear-gradient(135deg, #4E8AE6, #5B7FE6, #3B5FCC)',
                       backgroundSize: '200% 200%',
-                      boxShadow: '0 8px 32px rgba(91,95,239,0.35), 0 2px 8px rgba(139,92,246,0.25)',
+                      boxShadow: '0 8px 32px rgba(59,95,204,0.35), 0 2px 8px rgba(91,127,230,0.25)',
                     }}
                   >
                     {/* Shimmer effect */}

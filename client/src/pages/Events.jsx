@@ -54,7 +54,7 @@ const FeaturedCard = ({ event }) => (
   <motion.div variants={fadeUp}>
     <Link
       to={`/events/${event._id}`}
-      className="block rounded-2xl border border-border/60 overflow-hidden bg-bg-surface/50 group transition-all duration-300 hover:border-accent-primary/30 hover:shadow-[0_20px_60px_-12px_rgba(91,95,239,0.15)]"
+      className="block rounded-2xl border border-border/60 overflow-hidden bg-bg-surface/50 group transition-all duration-300 hover:border-accent-primary/30 hover:shadow-[0_20px_60px_-12px_rgba(59,95,204,0.15)]"
     >
       <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr]">
         {/* Image */}
@@ -64,7 +64,7 @@ const FeaturedCard = ({ event }) => (
               <img src={event.coverImage || event.image} alt={event.title}
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
             ) : (
-              <div className="w-full h-full bg-gradient-to-br from-accent-primary/10 to-accent-purple/10 flex items-center justify-center">
+              <div className="w-full h-full bg-gradient-to-br from-accent-primary/10 to-accent-secondary/10 flex items-center justify-center">
                 <HiOutlineCalendar className="w-16 h-16 text-accent-primary/20" />
               </div>
             )}
@@ -135,10 +135,10 @@ const PastCard = ({ event }) => {
         className="block rounded-2xl border border-border/50 bg-bg-surface/60 overflow-hidden group"
         style={{
           boxShadow: hovered
-            ? '0 20px 50px -12px rgba(91,95,239,0.2), 0 0 0 1px rgba(91,95,239,0.15)'
+            ? '0 20px 50px -12px rgba(59,95,204,0.2), 0 0 0 1px rgba(59,95,204,0.15)'
             : '0 4px 16px -4px rgba(0,0,0,0.15)',
           transform: hovered ? 'translateY(-6px)' : 'translateY(0)',
-          borderColor: hovered ? 'rgba(91,95,239,0.25)' : undefined,
+          borderColor: hovered ? 'rgba(59,95,204,0.25)' : undefined,
           transition: 'all 0.35s cubic-bezier(0.22, 1, 0.36, 1)',
         }}
       >
@@ -154,7 +154,7 @@ const PastCard = ({ event }) => {
               <img src={event.coverImage || event.image} alt={event.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
             ) : (
-              <div className="w-full h-full bg-gradient-to-br from-accent-primary/8 to-accent-purple/8 flex items-center justify-center">
+              <div className="w-full h-full bg-gradient-to-br from-accent-primary/8 to-accent-secondary/8 flex items-center justify-center">
                 <HiOutlineCalendar className="w-10 h-10 text-accent-primary/15" />
               </div>
             )}
@@ -190,7 +190,7 @@ const PastCard = ({ event }) => {
               transition={{ duration: 0.25, ease: 'easeOut' }}
               className="flex-shrink-0"
             >
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FF6B8A] to-[#FF8A6B] flex items-center justify-center shadow-lg shadow-[#FF6B8A]/30">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#4E8AE6] to-[#5B94F0] flex items-center justify-center shadow-lg shadow-[#4E8AE6]/30">
                 <HiOutlineArrowRight className="w-4 h-4 text-white -rotate-45" />
               </div>
             </motion.div>

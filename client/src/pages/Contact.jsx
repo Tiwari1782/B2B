@@ -13,7 +13,7 @@ const fadeUp   = (delay = 0) => ({ hidden: { opacity: 0, y: 28 }, visible: { opa
 const fadeLeft = (delay = 0) => ({ hidden: { opacity: 0, x: -32 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] } } });
 const fadeRight= (delay = 0) => ({ hidden: { opacity: 0, x: 32  }, visible: { opacity: 1, x: 0, transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] } } });
 
-/* CGC Landran, Mohali coordinates */
+/* CGC University, Mohali coordinates */
 const CGC_LAT = 30.6942;
 const CGC_LNG = 76.8606;
 
@@ -76,15 +76,15 @@ const Contact = () => {
     {
       icon: HiOutlineLocationMarker,
       label: 'Visit Us',
-      value: content.contact_address || 'CGC Landran, Mohali, Punjab',
+      value: content.contact_address || 'CGC University, Mohali, Punjab',
       href: `https://maps.google.com/?q=CGC+University+Mohali`,
-      color: '#8b5cf6',
+      color: '#5B7FE6',
       gradient: 'from-violet-500/20 to-purple-500/10',
       desc: 'CGC University, Landran',
     },
   ];
 
-  /* Google Maps embed URL for CGC Landran */
+  /* Google Maps embed URL for CGC University */
   const mapEmbedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3431.332817261604!2d76.60319107557841!3d30.680910674609247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fe5b795735cfd%3A0xb287b4430b6720fb!2sCGC%20University%2C%20Mohali!5e0!3m2!1sen!2sin!4v1777085963932!5m2!1sen!2sin`;
 
   const inputClass = (field) =>
@@ -104,7 +104,7 @@ const Contact = () => {
           style={{ background: 'radial-gradient(circle, #6366f1, transparent 70%)' }} />
         {/* Bottom-right glow */}
         <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full opacity-[0.05]"
-          style={{ background: 'radial-gradient(circle, #8b5cf6, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(circle, #5B7FE6, transparent 70%)' }} />
         {/* Dot grid */}
         <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -257,7 +257,7 @@ const Contact = () => {
                   className="w-full font-black py-4 rounded-xl text-white flex items-center justify-center gap-2.5 text-sm transition-all duration-300 disabled:opacity-70"
                   style={sent
                     ? { background: 'linear-gradient(135deg, #10b981, #059669)', boxShadow: '0 6px 24px rgba(16,185,129,0.35)' }
-                    : { background: 'linear-gradient(135deg, #FF6B8A, #8B5CF6)', boxShadow: '0 6px 24px rgba(139,92,246,0.35)' }}
+                    : { background: 'linear-gradient(135deg, #4E8AE6, #5B7FE6)', boxShadow: '0 6px 24px rgba(91,127,230,0.35)' }}
                 >
                   {submitting ? (
                     <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Sending…</>
@@ -293,7 +293,7 @@ const Contact = () => {
                     style={{ background: 'rgba(99,102,241,0.25)', border: '1px solid rgba(99,102,241,0.4)' }}>
                     <HiOutlineLocationMarker className="w-3.5 h-3.5 text-[#6366f1]" />
                   </div>
-                  <span className="text-xs font-bold text-white/90">CGC Landran, Mohali</span>
+                  <span className="text-xs font-bold text-white/90">CGC University, Mohali</span>
                 </div>
                 <a
                   href="https://maps.google.com/?q=CGC+University+Mohali"
@@ -308,7 +308,7 @@ const Contact = () => {
               {/* The iframe */}
               <iframe
                 ref={mapRef}
-                title="CGC Landran Mohali"
+                title="CGC University Mohali"
                 src={mapEmbedUrl}
                 width="100%"
                 height="100%"
@@ -324,16 +324,16 @@ const Contact = () => {
                 <div className="absolute" style={{ transform: 'translate(-2px, -18px)' }}>
                   <div className="relative flex items-center justify-center">
                     <span className="absolute w-14 h-14 rounded-full animate-ping opacity-20"
-                      style={{ background: '#FF6B8A', animationDuration: '2s' }} />
+                      style={{ background: '#4E8AE6', animationDuration: '2s' }} />
                     <span className="absolute w-10 h-10 rounded-full animate-ping opacity-30"
-                      style={{ background: '#8B5CF6', animationDuration: '2s', animationDelay: '0.4s' }} />
+                      style={{ background: '#5B7FE6', animationDuration: '2s', animationDelay: '0.4s' }} />
                     {/* Pin body */}
                     <svg width="38" height="50" viewBox="0 0 38 50" fill="none" xmlns="http://www.w3.org/2000/svg"
-                      style={{ filter: 'drop-shadow(0 6px 14px rgba(139,92,246,0.6)) drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
+                      style={{ filter: 'drop-shadow(0 6px 14px rgba(91,127,230,0.6)) drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}>
                       <defs>
                         <linearGradient id="pinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#FF6B8A" />
-                          <stop offset="100%" stopColor="#8B5CF6" />
+                          <stop offset="0%" stopColor="#4E8AE6" />
+                          <stop offset="100%" stopColor="#5B7FE6" />
                         </linearGradient>
                         <radialGradient id="pinShine" cx="35%" cy="30%" r="50%">
                           <stop offset="0%" stopColor="rgba(255,255,255,0.35)" />
@@ -363,10 +363,10 @@ const Contact = () => {
 
             {/* Location detail card */}
             <div className="card-base p-5 relative overflow-hidden"
-              style={{ border: '1px solid rgba(99,102,241,0.2)', background: 'linear-gradient(135deg, rgba(99,102,241,0.06), rgba(139,92,246,0.04))' }}>
+              style={{ border: '1px solid rgba(99,102,241,0.2)', background: 'linear-gradient(135deg, rgba(99,102,241,0.06), rgba(91,127,230,0.04))' }}>
               {/* Accent strip */}
               <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-xl"
-                style={{ background: 'linear-gradient(180deg, #6366f1, #8b5cf6)' }} />
+                style={{ background: 'linear-gradient(180deg, #6366f1, #5B7FE6)' }} />
 
               <div className="flex items-start gap-4 pl-3">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
@@ -374,10 +374,10 @@ const Contact = () => {
                   <HiOutlineLocationMarker className="w-5 h-5 text-[#6366f1]" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-text-primary font-black text-sm leading-snug">CGC Landran</p>
+                  <p className="text-text-primary font-black text-sm leading-snug">CGC University</p>
                   <p className="text-text-muted text-xs mt-0.5 leading-relaxed">
-                    Chandigarh Group of Colleges<br />
-                    Landran, Mohali, Punjab 140307
+                    CGC University, Mohali<br />
+                    Mohali, Punjab 140307
                   </p>
                   <a
                     href="https://maps.google.com/dir/?api=1&destination=CGC+University+Mohali"
@@ -403,10 +403,10 @@ const Contact = () => {
           className="max-w-5xl mx-auto mt-12"
         >
           <div className="relative overflow-hidden rounded-2xl p-7 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6"
-            style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(139,92,246,0.08) 50%, rgba(6,182,212,0.06) 100%)', border: '1px solid rgba(99,102,241,0.18)' }}>
+            style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(91,127,230,0.08) 50%, rgba(6,182,212,0.06) 100%)', border: '1px solid rgba(99,102,241,0.18)' }}>
             {/* BG orbs */}
             <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full opacity-10 pointer-events-none"
-              style={{ background: 'radial-gradient(circle, #8b5cf6, transparent)' }} />
+              style={{ background: 'radial-gradient(circle, #5B7FE6, transparent)' }} />
             <div className="absolute -bottom-6 left-16 w-28 h-28 rounded-full opacity-8 pointer-events-none"
               style={{ background: 'radial-gradient(circle, #6366f1, transparent)' }} />
 
@@ -418,7 +418,7 @@ const Contact = () => {
               <a
                 href="mailto:contact@bug2build.in"
                 className="flex items-center gap-2 text-sm font-black px-5 py-2.5 rounded-xl text-white transition-all duration-200"
-                style={{ background: 'linear-gradient(135deg, #FF6B8A, #8B5CF6)', boxShadow: '0 4px 16px rgba(139,92,246,0.35)' }}
+                style={{ background: 'linear-gradient(135deg, #4E8AE6, #5B7FE6)', boxShadow: '0 4px 16px rgba(91,127,230,0.35)' }}
               >
                 <HiOutlineMail className="w-4 h-4" />
                 Email Us

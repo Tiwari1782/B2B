@@ -49,9 +49,9 @@ const TOAST_VARIANTS = {
   },
   info: {
     icon: HiOutlineInformationCircle,
-    gradient: 'linear-gradient(135deg, #5B5FEF, #8B5CF6)',
+    gradient: 'linear-gradient(135deg, #3B5FCC, #5B7FE6)',
     glow: 'rgba(91, 95, 239, 0.25)',
-    accent: '#5B5FEF',
+    accent: '#3B5FCC',
     bg: 'rgba(91, 95, 239, 0.08)',
     border: 'rgba(91, 95, 239, 0.2)',
   },

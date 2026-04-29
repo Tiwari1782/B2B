@@ -39,7 +39,7 @@ const ScrollProgressBar = () => {
       className="fixed top-0 left-0 right-0 h-[2px] z-[9999] origin-left"
       style={{
         scaleX,
-        background: 'linear-gradient(90deg, #5B5FEF, #8B5CF6, #00C2FF)',
+        background: 'linear-gradient(90deg, #3B5FCC, #5B7FE6, #1A8FBC)',
       }}
     />
   );
@@ -111,7 +111,7 @@ const HeroBackground = () => {
       <div
         className="absolute w-[700px] h-[700px] rounded-full transition-all duration-700 ease-out"
         style={{
-          background: 'radial-gradient(circle, rgba(91,95,239,0.25) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(59,95,204,0.25) 0%, transparent 70%)',
           left: `${mouse.x}%`,
           top: `${mouse.y}%`,
           transform: 'translate(-50%, -50%)',
@@ -120,8 +120,8 @@ const HeroBackground = () => {
 
       {/* Static ambient orbs */}
       <div className="absolute top-16 left-16 w-80 h-80 rounded-full bg-accent-primary/25 blur-[100px]" />
-      <div className="absolute bottom-24 right-16 w-96 h-96 rounded-full bg-accent-blue/25 blur-[120px]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-accent-purple/15 blur-[180px]" />
+      <div className="absolute bottom-24 right-16 w-96 h-96 rounded-full bg-[var(--color-accent-cyan)]/25 blur-[120px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[var(--color-accent-secondary)]/15 blur-[180px]" />
 
       {/* Animated particles */}
       {Array.from({ length: 18 }).map((_, i) => (
@@ -149,12 +149,12 @@ const HeroBackground = () => {
 
       {/* Floating geometric shapes */}
       {[
-        { size: 56, x: '14%', y: '22%', d: 6, color: 'rgba(91,95,239,0.22)', rotate: 45 },
-        { size: 38, x: '79%', y: '18%', d: 8, color: 'rgba(0,194,255,0.22)', rotate: 12 },
-        { size: 72, x: '68%', y: '62%', d: 10, color: 'rgba(139,92,246,0.22)', rotate: 30 },
-        { size: 28, x: '24%', y: '72%', d: 7, color: 'rgba(255,107,138,0.22)', rotate: 60 },
-        { size: 48, x: '88%', y: '38%', d: 9, color: 'rgba(91,95,239,0.22)', rotate: 20 },
-        { size: 34, x: '6%', y: '55%', d: 6, color: 'rgba(0,194,255,0.22)', rotate: 75 },
+        { size: 56, x: '14%', y: '22%', d: 6, color: 'var(--color-shape-blue)', rotate: 45 },
+        { size: 38, x: '79%', y: '18%', d: 8, color: 'var(--color-shape-cyan)', rotate: 12 },
+        { size: 72, x: '68%', y: '62%', d: 10, color: 'var(--color-shape-bright)', rotate: 30 },
+        { size: 28, x: '24%', y: '72%', d: 7, color: 'var(--color-shape-navy)', rotate: 60 },
+        { size: 48, x: '88%', y: '38%', d: 9, color: 'var(--color-shape-blue)', rotate: 20 },
+        { size: 34, x: '6%', y: '55%', d: 6, color: 'var(--color-shape-cyan)', rotate: 75 },
       ].map((s, i) => (
         <motion.div
           key={`shape-${i}`}
@@ -180,8 +180,8 @@ const HeroBackground = () => {
         className="absolute inset-0 opacity-[0.12]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(91,95,239,0.8) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(91,95,239,0.8) 1px, transparent 1px)
+            linear-gradient(rgba(59,95,204,0.8) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59,95,204,0.8) 1px, transparent 1px)
           `,
           backgroundSize: '80px 80px',
         }}
@@ -207,7 +207,7 @@ const StatCard = ({ icon: Icon, value, suffix, label, color, delay }) => (
     >
       <Icon className="w-5 h-5" style={{ color }} />
     </div>
-    <div className="text-3xl md:text-4xl font-black font-heading text-text-primary tracking-tight">
+    <div className="text-3xl md:text-4xl font-black font-heading tracking-tight" style={{ color }}>
       <CountUp to={value} suffix={suffix} />
     </div>
     <div className="text-[11px] text-text-muted font-semibold tracking-[0.18em] uppercase mt-1.5">{label}</div>
@@ -224,7 +224,7 @@ const milestones = [
     title: 'Establishment of Community',
     description: 'Bug2Build was officially founded — a community built by students, for students, to bridge the gap between bugs and real-world builds.',
     icon: HiOutlineFlag,
-    color: '#FF6B8A',
+    color: '#3B5FCC',
     tag: 'Origin Story',
   },
   {
@@ -232,7 +232,7 @@ const milestones = [
     title: 'Cyber Security, IOT & AI Workshop',
     description: 'Conducted a comprehensive workshop covering Cyber Security, IOT, AI, and General Computer Skills at a government school, bringing tech education to underserved communities.',
     icon: HiOutlineAcademicCap,
-    color: '#5B5FEF',
+    color: '#1A8FBC',
     tag: 'Workshop',
   },
   {
@@ -240,7 +240,7 @@ const milestones = [
     title: 'Code Clash Hosted',
     description: 'Successfully hosted Code Clash — an intense competitive programming event that brought together developers to compete, collaborate, and showcase their skills.',
     icon: HiOutlineDesktopComputer,
-    color: '#8B5CF6',
+    color: '#5B7FE6',
     tag: 'Event',
   },
 ];
@@ -261,7 +261,7 @@ const TimelineCard = ({ milestone, index }) => {
         initial={{ scale: 0, opacity: 0 }}
         animate={isInView ? { scale: 1, opacity: 1 } : {}}
         transition={{ duration: 0.4, delay: 0.3 }}
-        className="absolute left-1/2 -translate-x-1/2 z-10 w-5 h-5 rounded-full border-2 border-accent-primary bg-bg-primary shadow-[0_0_16px_rgba(91,95,239,0.5)]"
+        className="absolute left-1/2 -translate-x-1/2 z-10 w-5 h-5 rounded-full border-2 border-accent-primary bg-bg-primary shadow-[0_0_16px_rgba(59,95,204,0.5)]"
         style={{ top: '1.75rem' }}
       >
         <motion.div
@@ -347,7 +347,7 @@ const EventCard = ({ event, index }) => {
   const [hovered, setHovered] = useState(false);
   const statusConfig = {
     upcoming: { bg: 'bg-emerald-500/10', text: 'text-emerald-400', dot: 'bg-emerald-400', label: 'Upcoming' },
-    ongoing:  { bg: 'bg-accent-blue/10',  text: 'text-accent-blue',  dot: 'bg-accent-blue',  label: 'Live Now' },
+    ongoing:  { bg: 'bg-accent-cyan/10',  text: 'text-accent-cyan',  dot: 'bg-accent-cyan',  label: 'Live Now' },
     past:     { bg: 'bg-text-muted/10',   text: 'text-text-muted',   dot: 'bg-text-muted',   label: 'Past' },
   };
   const s = statusConfig[event.status] || statusConfig.past;
@@ -363,7 +363,7 @@ const EventCard = ({ event, index }) => {
         className="block h-full relative overflow-hidden rounded-2xl border border-border bg-bg-surface transition-all duration-300"
         style={{
           boxShadow: hovered
-            ? '0 24px 48px -12px rgba(91,95,239,0.2), 0 0 0 1px rgba(91,95,239,0.2)'
+            ? '0 24px 48px -12px rgba(59,95,204,0.2), 0 0 0 1px rgba(59,95,204,0.2)'
             : '0 4px 16px -4px rgba(0,0,0,0.2)',
           transform: hovered ? 'translateY(-6px)' : 'translateY(0)',
           transition: 'all 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
@@ -388,7 +388,7 @@ const EventCard = ({ event, index }) => {
             </div>
           </div>
         ) : (
-          <div className="h-48 relative overflow-hidden bg-gradient-to-br from-accent-primary/10 to-accent-purple/10 flex items-center justify-center">
+          <div className="h-48 relative overflow-hidden bg-gradient-to-br from-accent-primary/10 to-accent-secondary/10 flex items-center justify-center">
             <HiOutlineCalendar className="w-16 h-16 text-accent-primary/20" />
             <div className="absolute top-4 left-4">
               <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${s.bg} ${s.text}`}>
@@ -445,7 +445,7 @@ const TeamCard = ({ member }) => {
         <motion.div
           className="absolute -inset-1.5 rounded-full"
           style={{
-            background: 'conic-gradient(from 0deg, #5B5FEF, #8B5CF6, #00C2FF, #5B5FEF)',
+            background: 'conic-gradient(from 0deg, #3B5FCC, #5B7FE6, #1A8FBC, #3B5FCC)',
             opacity: hovered ? 1 : 0,
           }}
           animate={hovered ? { rotate: 360 } : {}}
@@ -603,7 +603,7 @@ const Home = () => {
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
               <Link
                 to="/events"
-                className="group gradient-btn text-white font-bold px-9 py-4 rounded-2xl text-base inline-flex items-center justify-center gap-2.5 shadow-[0_8px_24px_rgba(91,95,239,0.35)] hover:shadow-[0_12px_32px_rgba(91,95,239,0.5)] transition-all duration-300 hover:-translate-y-0.5"
+                className="group gradient-btn text-white font-bold px-9 py-4 rounded-2xl text-base inline-flex items-center justify-center gap-2.5 shadow-[0_8px_24px_rgba(59,95,204,0.35)] hover:shadow-[0_12px_32px_rgba(59,95,204,0.5)] transition-all duration-300 hover:-translate-y-0.5"
               >
                 {content.hero_cta || 'Explore Events'}
                 <motion.span
@@ -627,16 +627,16 @@ const Home = () => {
               variants={fadeIn}
               className="relative max-w-3xl mx-auto"
             >
-              <div className="absolute -inset-px rounded-[2rem] bg-gradient-to-r from-accent-primary/30 via-accent-purple/30 to-accent-blue/30 blur-sm" />
+              <div className="absolute -inset-px rounded-[2rem] bg-gradient-to-r from-accent-primary/30 via-accent-secondary/30 to-accent-cyan/30 blur-sm" />
               <div className="relative rounded-[2rem] border border-border/50 bg-bg-surface/60 backdrop-blur-xl overflow-hidden">
                 {/* Shimmer line */}
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-primary/60 to-transparent" />
 
                 <div className="flex divide-x divide-border/40">
                   {[
-                    { icon: HiOutlineUsers, value: 1000, suffix: '+', label: 'Members', color: '#5B5FEF' },
-                    { icon: HiOutlineLightningBolt, value: 15, suffix: '+', label: 'Events', color: '#8B5CF6' },
-                    { icon: HiOutlineCode, value: 100, suffix: '+', label: 'Projects', color: '#00C2FF' },
+                    { icon: HiOutlineUsers, value: 1000, suffix: '+', label: 'Members', color: '#3B5FCC' },
+                    { icon: HiOutlineLightningBolt, value: 15, suffix: '+', label: 'Events', color: '#5B7FE6' },
+                    { icon: HiOutlineCode, value: 100, suffix: '+', label: 'Projects', color: '#1A8FBC' },
                   ].map((stat, i) => (
                     <StatCard key={i} {...stat} delay={0.1 * i} />
                   ))}
@@ -692,14 +692,14 @@ const Home = () => {
               {/* Right: feature pills */}
               <motion.div variants={staggerContainer} className="flex flex-wrap gap-3">
                 {[
-                  { icon: HiOutlineCode, text: 'Open Source Projects', color: '#5B5FEF' },
-                  { icon: HiOutlineLightningBolt, text: 'Hackathons & Events', color: '#8B5CF6' },
-                  { icon: HiOutlineAcademicCap, text: 'Free Workshops', color: '#FF6B8A' },
-                  { icon: HiOutlineUsers, text: 'Peer Learning', color: '#00C2FF' },
+                  { icon: HiOutlineCode, text: 'Open Source Projects', color: '#3B5FCC' },
+                  { icon: HiOutlineLightningBolt, text: 'Hackathons & Events', color: '#5B7FE6' },
+                  { icon: HiOutlineAcademicCap, text: 'Free Workshops', color: '#4E8AE6' },
+                  { icon: HiOutlineUsers, text: 'Peer Learning', color: '#1A8FBC' },
                   { icon: HiOutlineGlobe, text: 'Global Community', color: '#10B981' },
                   { icon: HiOutlineFire, text: 'Real-World Impact', color: '#F59E0B' },
                   { icon: HiOutlineSparkles, text: 'Student-Led Initiatives', color: '#EC4899' },
-                  { icon: HiOutlineFlag, text: 'Non-Profit Mission', color: '#5B5FEF' },
+                  { icon: HiOutlineFlag, text: 'Non-Profit Mission', color: '#3B5FCC' },
                 ].map((pill, i) => (
                   <FeaturePill key={i} {...pill} />
                 ))}
@@ -732,7 +732,7 @@ const Home = () => {
           <div className="relative max-w-4xl mx-auto">
             {/* Center line */}
             <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden md:block">
-              <div className="h-full bg-gradient-to-b from-accent-primary/60 via-accent-purple/40 to-transparent" />
+              <div className="h-full bg-gradient-to-b from-accent-primary/60 via-accent-secondary/40 to-transparent" />
             </div>
             {/* Mobile line */}
             <div className="absolute left-4 top-0 bottom-0 w-px md:hidden bg-gradient-to-b from-accent-primary/50 to-transparent" />
@@ -976,13 +976,13 @@ const Home = () => {
             className="relative"
           >
             {/* Glow border */}
-            <div className="absolute -inset-px rounded-[15px] bg-gradient-to-r from-accent-primary/20 via-accent-purple/20 to-accent-blue/20 blur-sm" />
+            <div className="absolute -inset-px rounded-[15px] bg-gradient-to-r from-accent-primary/20 via-accent-secondary/20 to-accent-cyan/20 blur-sm" />
             <div className="relative stat-bar" style={{ marginTop: 0 }}>
               {[
-                { num: partners.length || 0, suffix: '+', label: 'Community Partners', icon: HiOutlineGlobe, color: '#5B5FEF' },
-                { num: 5, suffix: '+', label: 'Industries Served', icon: HiOutlineLightningBolt, color: '#8B5CF6' },
-                { num: 3, suffix: '+', label: 'Cities Worldwide', icon: HiOutlineLocationMarker, color: '#00C2FF' },
-                { num: 1, suffix: 'yr', label: 'Active Partnerships', icon: HiOutlineSparkles, color: '#FF6B8A' },
+                { num: partners.length || 0, suffix: '+', label: 'Community Partners', icon: HiOutlineGlobe, color: '#3B5FCC' },
+                { num: 5, suffix: '+', label: 'Industries Served', icon: HiOutlineLightningBolt, color: '#5B7FE6' },
+                { num: 3, suffix: '+', label: 'Cities Worldwide', icon: HiOutlineLocationMarker, color: '#1A8FBC' },
+                { num: 1, suffix: 'yr', label: 'Active Partnerships', icon: HiOutlineSparkles, color: '#2B4EB8' },
               ].map((s, i) => (
                 <motion.div key={i} variants={fadeUp} className="stat-item group cursor-default">
                   <div
@@ -1056,12 +1056,12 @@ const Home = () => {
             className="relative rounded-3xl overflow-hidden"
           >
             {/* Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/20 via-accent-purple/15 to-accent-blue/20" />
+            <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/20 via-accent-secondary/15 to-accent-cyan/20" />
             <div className="absolute inset-0 border border-accent-primary/20 rounded-3xl" />
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-primary/60 to-transparent" />
 
             {/* Floating orbs inside */}
-            <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-accent-blue/15 blur-3xl" />
+            <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-accent-cyan/15 blur-3xl" />
             <div className="absolute -bottom-12 -left-12 w-56 h-56 rounded-full bg-accent-primary/15 blur-3xl" />
 
             <div className="relative z-10 px-8 py-16 md:px-16 md:py-20 text-center">
@@ -1079,7 +1079,7 @@ const Home = () => {
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/events"
-                  className="gradient-btn text-white font-bold px-9 py-4 rounded-2xl text-base inline-flex items-center justify-center gap-2.5 shadow-[0_8px_24px_rgba(91,95,239,0.35)] hover:-translate-y-0.5 transition-all duration-200"
+                  className="gradient-btn text-white font-bold px-9 py-4 rounded-2xl text-base inline-flex items-center justify-center gap-2.5 shadow-[0_8px_24px_rgba(59,95,204,0.35)] hover:-translate-y-0.5 transition-all duration-200"
                 >
                   View Events <HiOutlineArrowRight className="w-5 h-5" />
                 </Link>

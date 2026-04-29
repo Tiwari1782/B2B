@@ -17,14 +17,16 @@ export default {
         },
         accent: {
           primary: 'var(--color-accent-primary)',
-          blue: 'var(--color-accent-blue)',
-          purple: 'var(--color-accent-purple)',
+          secondary: 'var(--color-accent-secondary)',
+          deep: 'var(--color-accent-deep)',
+          cyan: 'var(--color-accent-cyan)',
           pink: 'var(--color-accent-pink)',
         },
         text: {
           primary: 'var(--color-text-primary)',
           secondary: 'var(--color-text-secondary)',
           muted: 'var(--color-text-muted)',
+          link: 'var(--color-text-link)',
         },
         border: 'var(--color-border)',
         'border-hover': 'var(--color-border-hover)',
@@ -50,8 +52,8 @@ export default {
           '50%': { transform: 'translateY(-10px)' },
         },
         'pulse-glow': {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(91, 95, 239, 0.2)' },
-          '50%': { boxShadow: '0 0 40px rgba(91, 95, 239, 0.4)' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(59, 95, 204, 0.2)' },
+          '50%': { boxShadow: '0 0 40px rgba(59, 95, 204, 0.4)' },
         },
         marquee: {
           '0%': { transform: 'translateX(0)' },

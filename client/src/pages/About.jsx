@@ -41,10 +41,10 @@ const ScrollSection = ({ children, className = '' }) => {
 
 /* ─── stat data for the "Who We Are" grid ─── */
 const stats = [
-  { value: '500+', label: 'Community Members', color: '#5B5FEF', icon: HiOutlineUserGroup },
+  { value: '500+', label: 'Community Members', color: '#3B5FCC', icon: HiOutlineUserGroup },
   { value: '50+', label: 'Partners & Sponsors', color: '#22C55E', icon: HiOutlineLightningBolt },
-  { value: '100+', label: 'Open Source Projects', color: '#00C2FF', icon: HiOutlineCode },
-  { value: '100%', label: 'Community Driven', color: '#FF6B8A', icon: HiOutlineHeart },
+  { value: '100+', label: 'Open Source Projects', color: '#1A8FBC', icon: HiOutlineCode },
+  { value: '100%', label: 'Community Driven', color: '#4E8AE6', icon: HiOutlineHeart },
 ];
 
 /* ─── methodology cards ─── */
@@ -55,7 +55,7 @@ const methodologyCards = [
     description:
       'The Bug2Build philosophy starts here. We break complex concepts into atomic, hands-on workshops. Mastering fundamentals is key to scalable growth.',
     tags: ['Workshops', 'Bootcamps', 'Mentorship'],
-    color: '#5B5FEF',
+    color: '#3B5FCC',
     borderColor: 'rgba(91, 95, 239, 0.5)',
     bgGlow: 'rgba(91, 95, 239, 0.06)',
   },
@@ -85,7 +85,7 @@ const methodologyCards = [
     description:
       'Shipping value to the world. From CI/CD pipelines to production releases, we empower students to deliver real impact at scale.',
     tags: ['CI/CD', 'Production', 'Impact'],
-    color: '#FF6B8A',
+    color: '#4E8AE6',
     borderColor: 'rgba(255, 107, 138, 0.5)',
     bgGlow: 'rgba(255, 107, 138, 0.06)',
   },
@@ -93,10 +93,10 @@ const methodologyCards = [
 
 /* ─── values data ─── */
 const values = [
-  { icon: HiOutlineCode, title: 'Open Source First', desc: 'We build in the open. All our projects, tools, and resources are freely available for everyone.', color: '#FF6B8A' },
-  { icon: HiOutlineHeart, title: 'Community Driven', desc: 'Every decision is made with our community in mind. We grow together, we build together.', color: '#5B5FEF' },
-  { icon: HiOutlineAcademicCap, title: 'Education for All', desc: 'We believe quality tech education should be free and accessible to every student, everywhere.', color: '#00C2FF' },
-  { icon: HiOutlineGlobe, title: 'Impact at Scale', desc: 'From local workshops to national hackathons — we aim to create lasting impact across communities.', color: '#8B5CF6' },
+  { icon: HiOutlineCode, title: 'Open Source First', desc: 'We build in the open. All our projects, tools, and resources are freely available for everyone.', color: '#4E8AE6' },
+  { icon: HiOutlineHeart, title: 'Community Driven', desc: 'Every decision is made with our community in mind. We grow together, we build together.', color: '#3B5FCC' },
+  { icon: HiOutlineAcademicCap, title: 'Education for All', desc: 'We believe quality tech education should be free and accessible to every student, everywhere.', color: '#1A8FBC' },
+  { icon: HiOutlineGlobe, title: 'Impact at Scale', desc: 'From local workshops to national hackathons — we aim to create lasting impact across communities.', color: '#5B7FE6' },
 ];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -140,7 +140,7 @@ const About = () => {
               <motion.div variants={fadeChild} className="mb-6">
                 <span
                   className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold tracking-[0.18em] uppercase"
-                  style={{ background: 'rgba(91,95,239,0.1)', color: '#5B5FEF', border: '1px solid rgba(91,95,239,0.15)' }}
+                  style={{ background: 'rgba(59,95,204,0.1)', color: '#3B5FCC', border: '1px solid rgba(59,95,204,0.15)' }}
                 >
                   <HiOutlineSparkles className="w-3.5 h-3.5" />
                   Who We Are
@@ -166,8 +166,8 @@ const About = () => {
               {/* Feature tags */}
               <motion.div variants={fadeChild} className="flex flex-wrap gap-2.5">
                 {[
-                  { icon: HiOutlineGlobe, text: 'Global Reach', color: '#5B5FEF' },
-                  { icon: HiOutlineHeart, text: 'Open Source', color: '#FF6B8A' },
+                  { icon: HiOutlineGlobe, text: 'Global Reach', color: '#3B5FCC' },
+                  { icon: HiOutlineHeart, text: 'Open Source', color: '#4E8AE6' },
                   { icon: HiOutlineFire, text: 'Innovation', color: '#F59E0B' },
                 ].map((tag, i) => (
                   <span
@@ -249,7 +249,7 @@ const About = () => {
               <motion.div variants={fadeChild} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-4">
                 <span
                   className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold tracking-[0.18em] uppercase"
-                  style={{ background: 'rgba(91,95,239,0.1)', color: '#5B5FEF', border: '1px solid rgba(91,95,239,0.15)' }}
+                  style={{ background: 'rgba(59,95,204,0.1)', color: '#3B5FCC', border: '1px solid rgba(59,95,204,0.15)' }}
                 >
                   <HiOutlineLightningBolt className="w-3.5 h-3.5" />
                   The B2B Methodology
@@ -431,7 +431,7 @@ const About = () => {
             <motion.div variants={fadeChild} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-4">
               <span
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold tracking-[0.18em] uppercase"
-                style={{ background: 'rgba(91,95,239,0.1)', color: '#5B5FEF', border: '1px solid rgba(91,95,239,0.15)' }}
+                style={{ background: 'rgba(59,95,204,0.1)', color: '#3B5FCC', border: '1px solid rgba(59,95,204,0.15)' }}
               >
                 <HiOutlineHeart className="w-3.5 h-3.5" />
                 Our Principles
@@ -462,7 +462,7 @@ const About = () => {
       <ScrollSection className="py-24 md:py-32">
         <div className="section-container">
           <div className="card-base p-12 md:p-16 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/5 via-transparent to-accent-purple/5" />
+            <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/5 via-transparent to-accent-secondary/5" />
             <div className="relative z-10">
               <h2 className="text-3xl md:text-4xl font-bold font-heading mb-5">
                 <span className="gradient-text">Ready to Join the Community?</span>

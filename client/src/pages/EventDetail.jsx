@@ -12,7 +12,7 @@ import api from '../services/api';
 /* ─── config ─────────────────────────────────────────────────── */
 const CATEGORY = {
   workshop:   { label: 'Workshop',   color: '#3B82F6' },
-  hackathon:  { label: 'Hackathon',  color: '#8B5CF6' },
+  hackathon:  { label: 'Hackathon',  color: '#5B7FE6' },
   meetup:     { label: 'Meetup',     color: '#10B981' },
   webinar:    { label: 'Webinar',    color: '#06B6D4' },
   conference: { label: 'Conference', color: '#F59E0B' },
@@ -42,7 +42,7 @@ const Skeleton = () => (
 );
 
 /* ─── info row ───────────────────────────────────────────────── */
-const InfoRow = ({ icon: Icon, label, value, color = '#5B5FEF' }) => (
+const InfoRow = ({ icon: Icon, label, value, color = '#3B5FCC' }) => (
   <div className="flex items-start gap-3.5 py-4">
     <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
       style={{ background: `${color}15` }}>
@@ -237,12 +237,12 @@ const EventDetail = () => {
                 <button className="w-10 h-10 rounded-full border border-border/60 flex items-center justify-center text-text-muted hover:text-text-primary hover:border-accent-primary/40 transition-all">
                   <HiOutlineShare className="w-4 h-4" />
                 </button>
-                <button className="w-10 h-10 rounded-full border border-border/60 flex items-center justify-center text-text-muted hover:text-[#FF6B8A] hover:border-[#FF6B8A]/40 transition-all">
+                <button className="w-10 h-10 rounded-full border border-border/60 flex items-center justify-center text-text-muted hover:text-[#4E8AE6] hover:border-[#4E8AE6]/40 transition-all">
                   <HiOutlineHeart className="w-4 h-4" />
                 </button>
 
                 {/* Coral arrow */}
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#FF6B8A] to-[#FF8A6B] flex items-center justify-center shadow-lg shadow-[#FF6B8A]/30 cursor-pointer hover:scale-105 transition-transform">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#4E8AE6] to-[#5B94F0] flex items-center justify-center shadow-lg shadow-[#4E8AE6]/30 cursor-pointer hover:scale-105 transition-transform">
                   <HiOutlineArrowRight className="w-5 h-5 text-white -rotate-45" />
                 </div>
               </div>
@@ -263,12 +263,12 @@ const EventDetail = () => {
               </div>
 
               <div className="px-5 divide-y divide-border/30">
-                <InfoRow icon={HiOutlineCalendar} label="Date" value={formattedDate} color="#5B5FEF" />
+                <InfoRow icon={HiOutlineCalendar} label="Date" value={formattedDate} color="#3B5FCC" />
                 {event.location && (
-                  <InfoRow icon={HiOutlineLocationMarker} label="Location" value={event.location} color="#8B5CF6" />
+                  <InfoRow icon={HiOutlineLocationMarker} label="Location" value={event.location} color="#5B7FE6" />
                 )}
                 {event.time && (
-                  <InfoRow icon={HiOutlineClock} label="Time" value={event.time} color="#00C2FF" />
+                  <InfoRow icon={HiOutlineClock} label="Time" value={event.time} color="#1A8FBC" />
                 )}
               </div>
 

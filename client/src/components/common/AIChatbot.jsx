@@ -70,7 +70,7 @@ const AIChatbot = () => {
             style={{ background: 'var(--color-bg-surface)' }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-border" style={{ background: 'linear-gradient(135deg, rgba(91,95,239,0.15), rgba(0,194,255,0.1))' }}>
+            <div className="flex items-center justify-between px-4 py-3 border-b border-border" style={{ background: 'linear-gradient(135deg, rgba(59,95,204,0.15), rgba(26,143,188,0.1))' }}>
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full gradient-hero flex items-center justify-center">
                   <HiOutlineSparkles className="w-4 h-4 text-white" />
@@ -134,7 +134,7 @@ const AIChatbot = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask me anything..."
-                className="flex-1 bg-bg-primary border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-blue transition-colors"
+                className="flex-1 bg-bg-primary border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-cyan transition-colors"
                 id="chatbot-input"
               />
               <button

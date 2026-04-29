@@ -51,7 +51,7 @@ const AIChatPage = () => {
       <div className="max-w-4xl mx-auto w-full flex-1 flex flex-col bg-bg-surface border border-border rounded-2xl shadow-xl overflow-hidden relative">
 
         {/* Header */}
-        <div className="px-6 py-5 border-b border-border flex items-center justify-between" style={{ background: 'linear-gradient(135deg, rgba(91,95,239,0.1), rgba(0,194,255,0.05))' }}>
+        <div className="px-6 py-5 border-b border-border flex items-center justify-between" style={{ background: 'linear-gradient(135deg, rgba(59,95,204,0.1), rgba(26,143,188,0.05))' }}>
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full gradient-hero flex items-center justify-center">
               <HiOutlineSparkles className="w-5 h-5 text-white" />
@@ -73,7 +73,7 @@ const AIChatPage = () => {
               <button
                 key={idx}
                 onClick={() => handleQuickPrompt(prompt)}
-                className="text-left text-sm text-text-primary bg-bg-elevated border border-border px-3 py-2.5 rounded-lg hover:border-accent-blue hover:text-accent-blue transition-colors"
+                className="text-left text-sm text-text-primary bg-bg-elevated border border-border px-3 py-2.5 rounded-lg hover:border-accent-cyan hover:text-accent-cyan transition-colors"
               >
                 {prompt}
               </button>
@@ -125,7 +125,7 @@ const AIChatPage = () => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask me anything about Bug2Build..."
-                  className="w-full bg-bg-primary border border-border rounded-xl pl-5 pr-14 py-3.5 text-base text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue transition-all shadow-sm"
+                  className="w-full bg-bg-primary border border-border rounded-xl pl-5 pr-14 py-3.5 text-base text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-cyan focus:ring-1 focus:ring-accent-cyan transition-all shadow-sm"
                   disabled={loading}
                 />
                 <button

@@ -69,7 +69,7 @@ const Team = () => {
                 <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
                   {catMembers.map((member) => (
                     <motion.div key={member._id} variants={fadeChild} className="card-base card-glow p-6 text-center group">
-                      <div className="w-24 h-24 mx-auto mb-5 rounded-full overflow-hidden border-2 border-border group-hover:border-accent-primary transition-all duration-300 group-hover:shadow-[0_0_25px_rgba(91,95,239,0.2)]">
+                      <div className="w-24 h-24 mx-auto mb-5 rounded-full overflow-hidden border-2 border-border group-hover:border-accent-primary transition-all duration-300 group-hover:shadow-[0_0_25px_rgba(59,95,204,0.2)]">
                         {member.photo ? (
                           <img src={member.photo} alt={member.name} className="w-full h-full object-cover" loading="lazy" />
                         ) : (

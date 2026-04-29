@@ -27,23 +27,23 @@ const slideIn = {
 };
 
 const modules = [
-  { key: 'content',  label: 'Site Content',  icon: HiOutlineDocumentText, color: '#5B5FEF', grad: 'from-indigo-500 to-violet-600', glow: 'rgba(91,95,239,0.35)', desc: 'Manage site-wide content keys' },
-  { key: 'admins',   label: 'Admin Manager', icon: HiOutlineUsers,        color: '#8B5CF6', grad: 'from-violet-500 to-purple-700', glow: 'rgba(139,92,246,0.35)', desc: 'Create and manage admin accounts' },
-  { key: 'logs',     label: 'Activity Logs', icon: HiOutlineClipboardList,color: '#00C2FF', grad: 'from-cyan-400 to-blue-600',   glow: 'rgba(0,194,255,0.3)',   desc: 'View system activity and audit trail' },
+  { key: 'content',  label: 'Site Content',  icon: HiOutlineDocumentText, color: '#3B5FCC', grad: 'from-blue-600 to-blue-800', glow: 'rgba(59,95,204,0.35)', desc: 'Manage site-wide content keys' },
+  { key: 'admins',   label: 'Admin Manager', icon: HiOutlineUsers,        color: '#5B7FE6', grad: 'from-blue-500 to-blue-700', glow: 'rgba(91,127,230,0.35)', desc: 'Create and manage admin accounts' },
+  { key: 'logs',     label: 'Activity Logs', icon: HiOutlineClipboardList,color: '#1A8FBC', grad: 'from-sky-500 to-blue-600',   glow: 'rgba(26,143,188,0.3)',   desc: 'View system activity and audit trail' },
   { key: 'settings', label: 'Settings',      icon: HiOutlineCog,          color: '#F59E0B', grad: 'from-amber-400 to-orange-600', glow: 'rgba(245,158,11,0.3)',  desc: 'Global site configuration' },
 ];
 
 /* ─── Content key category inference ─── */
 const getCategoryMeta = (key = '') => {
   if (key.includes('email') || key.includes('contact'))
-    return { icon: HiOutlineGlobe, label: 'Contact', accent: '#00C2FF', bg: 'rgba(0,194,255,0.08)' };
+    return { icon: HiOutlineGlobe, label: 'Contact', accent: '#1A8FBC', bg: 'rgba(26,143,188,0.08)' };
   if (key.includes('chat') || key.includes('bot') || key.includes('ai'))
-    return { icon: HiOutlineChip, label: 'AI/Bot', accent: '#8B5CF6', bg: 'rgba(139,92,246,0.08)' };
+    return { icon: HiOutlineChip, label: 'AI/Bot', accent: '#5B7FE6', bg: 'rgba(91,127,230,0.08)' };
   if (key.includes('setting') || key.includes('config'))
     return { icon: HiOutlineCog, label: 'Config', accent: '#F59E0B', bg: 'rgba(245,158,11,0.08)' };
   if (key.includes('about') || key.includes('description') || key.includes('text'))
     return { icon: HiOutlineDocumentText, label: 'Content', accent: '#10B981', bg: 'rgba(16,185,129,0.08)' };
-  return { icon: HiOutlineTag, label: 'General', accent: '#5B5FEF', bg: 'rgba(91,95,239,0.08)' };
+  return { icon: HiOutlineTag, label: 'General', accent: '#3B5FCC', bg: 'rgba(59,95,204,0.08)' };
 };
 
 const SuperAdminDashboard = () => {
@@ -92,7 +92,7 @@ const SuperAdminDashboard = () => {
             <img src="/logo.png" alt="B2B" className="h-8 transition-transform duration-300 group-hover:scale-110" />
             <div className="hidden sm:block">
               <div className="font-heading text-sm font-bold gradient-text leading-none">Bug2Build</div>
-              <div className="text-[9px] font-bold uppercase tracking-[.15em] flex items-center gap-1" style={{ color: '#8B5CF6' }}>
+              <div className="text-[9px] font-bold uppercase tracking-[.15em] flex items-center gap-1" style={{ color: '#5B7FE6' }}>
                 <HiOutlineSparkles className="w-2.5 h-2.5" />Super Admin
               </div>
             </div>
@@ -131,12 +131,12 @@ const SuperAdminDashboard = () => {
               <HiOutlineCog className="w-3.5 h-3.5" />Admin Panel
             </button>
             <div className="hidden md:flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-black border" style={{ background: tc('rgba(139,92,246,.15)','rgba(139,92,246,.08)'), color: '#8B5CF6', borderColor: tc('rgba(139,92,246,.25)','rgba(139,92,246,.15)') }}>
+              <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-black border" style={{ background: tc('rgba(91,127,230,.15)','rgba(91,127,230,.08)'), color: '#5B7FE6', borderColor: tc('rgba(91,127,230,.25)','rgba(91,127,230,.15)') }}>
                 {user?.name?.[0]}
               </div>
               <div className="text-right mr-1">
                 <div className="text-xs font-semibold leading-none" style={{ color: tc('#F1F5F9','#0F172A') }}>{user?.name}</div>
-                <div className="text-[9px] font-bold uppercase tracking-wider mt-0.5 flex items-center gap-0.5 justify-end" style={{ color: '#8B5CF6' }}>
+                <div className="text-[9px] font-bold uppercase tracking-wider mt-0.5 flex items-center gap-0.5 justify-end" style={{ color: '#5B7FE6' }}>
                   <HiOutlineSparkles className="w-2.5 h-2.5" />SuperAdmin
                 </div>
               </div>
@@ -262,7 +262,7 @@ const SectionHeader = ({ count, countLabel = 'items', onAdd, addLabel = 'Add', s
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         className="flex items-center gap-2 px-3 py-1.5 rounded-xl"
-        style={{ background: 'rgba(91,95,239,0.08)', border: '1px solid rgba(91,95,239,0.15)' }}
+        style={{ background: 'rgba(59,95,204,0.08)', border: '1px solid rgba(59,95,204,0.15)' }}
       >
         <div className="w-1.5 h-1.5 rounded-full bg-accent-primary animate-pulse" />
         <span className="text-xs font-bold text-accent-primary">{count}</span>
@@ -393,13 +393,13 @@ const ContentCard = ({ item, idx, editing, editValue, copied, onEdit, onSave, on
       className="group relative overflow-hidden rounded-2xl transition-all duration-300"
       style={{
         background: isEditing
-          ? 'linear-gradient(135deg, rgba(91,95,239,0.06) 0%, rgba(139,92,246,0.04) 100%)'
+          ? 'linear-gradient(135deg, rgba(59,95,204,0.06) 0%, rgba(91,127,230,0.04) 100%)'
           : 'var(--bg-card, rgba(255,255,255,0.03))',
         border: isEditing
-          ? '1px solid rgba(91,95,239,0.35)'
+          ? '1px solid rgba(59,95,204,0.35)'
           : '1px solid rgba(255,255,255,0.07)',
         boxShadow: isEditing
-          ? '0 0 0 4px rgba(91,95,239,0.08), 0 8px 32px rgba(91,95,239,0.12)'
+          ? '0 0 0 4px rgba(59,95,204,0.08), 0 8px 32px rgba(59,95,204,0.12)'
           : '0 2px 12px rgba(0,0,0,0.08)',
       }}
     >
@@ -457,7 +457,7 @@ const ContentCard = ({ item, idx, editing, editValue, copied, onEdit, onSave, on
             >
               <code
                 className="text-accent-primary text-xs font-mono px-2.5 py-1 rounded-lg border transition-all duration-200 group-hover/key:border-accent-primary/50"
-                style={{ background: 'rgba(91,95,239,0.08)', borderColor: 'rgba(91,95,239,0.18)' }}
+                style={{ background: 'rgba(59,95,204,0.08)', borderColor: 'rgba(59,95,204,0.18)' }}
               >
                 {item.key}
               </code>
@@ -512,7 +512,7 @@ const ContentCard = ({ item, idx, editing, editValue, copied, onEdit, onSave, on
                 whileTap={{ scale: 0.9 }}
                 onClick={onEdit}
                 className="w-8 h-8 rounded-xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200"
-                style={{ background: 'rgba(91,95,239,0.1)', color: '#5B5FEF', border: '1px solid rgba(91,95,239,0.2)' }}
+                style={{ background: 'rgba(59,95,204,0.1)', color: '#3B5FCC', border: '1px solid rgba(59,95,204,0.2)' }}
               >
                 <HiOutlinePencil className="w-3.5 h-3.5" />
               </motion.button>
@@ -621,7 +621,7 @@ const AdminManager = () => {
     catch (err) { toast.error(err.response?.data?.message || 'Error.'); }
   };
 
-  const roleColor = (role) => role === 'superadmin' ? '#8B5CF6' : '#5B5FEF';
+  const roleColor = (role) => role === 'superadmin' ? '#5B7FE6' : '#3B5FCC';
 
   return (
     <div>
@@ -696,7 +696,7 @@ const CreateAdminModal = ({ onSave, onClose }) => {
   };
 
   return (
-    <ModalShell title="Create Admin" icon={HiOutlineUsers} color="#8B5CF6" onClose={onClose}>
+    <ModalShell title="Create Admin" icon={HiOutlineUsers} color="#5B7FE6" onClose={onClose}>
       <form onSubmit={handleSubmit} className="space-y-4">
         <Input label="Name" value={form.name} onChange={(v) => setForm({ ...form, name: v })} />
         <Input label="Email" type="email" value={form.email} onChange={(v) => setForm({ ...form, email: v })} />
@@ -726,7 +726,7 @@ const CreateAdminModal = ({ onSave, onClose }) => {
 const ResetPwModal = ({ adminId, onSave, onClose }) => {
   const [password, setPassword] = useState('');
   return (
-    <ModalShell title="Reset Password" icon={HiOutlineLockClosed} color="#00C2FF" onClose={onClose}>
+    <ModalShell title="Reset Password" icon={HiOutlineLockClosed} color="#1A8FBC" onClose={onClose}>
       <div className="space-y-4">
         <Input label="New Password" type="password" value={password} onChange={setPassword} />
         <motion.button
@@ -864,7 +864,7 @@ const SiteSettings = () => {
 /* ─────────────────────────────────────────────────────────────
    MODAL SHELL
 ───────────────────────────────────────────────────────────── */
-const ModalShell = ({ title, icon: Icon, color = '#5B5FEF', children, onClose }) => (
+const ModalShell = ({ title, icon: Icon, color = '#3B5FCC', children, onClose }) => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
     className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
     onClick={onClose}>
