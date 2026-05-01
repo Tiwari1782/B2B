@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/license-All%20Rights%20Reserved-red?style=for-the-badge" alt="License" />
 </p>
 
-# 🐛 Bug2Build — Community Platform
+#  Bug2Build — Community Platform
 
 > A fully dynamic, CMS-driven community website where **Admins and SuperAdmins manage 100% of site content from a browser dashboard — zero code changes needed after deployment.** Built on the MERN stack with an AI-powered chatbot (Groq/LLaMA 3), premium glassmorphic UI, 3D login effects, and a robust role-based access system.
 
